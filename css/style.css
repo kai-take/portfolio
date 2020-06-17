@@ -114,6 +114,7 @@ section {
 .header {
     display: flex;
     justify-content: space-between;
+    align-items: center;
     position: fixed;
     top: 0;
     left: 0;
@@ -210,7 +211,6 @@ section {
 .mobile-menu_btn {
     display: none;
     position: relative;
-    margin-top: 20px;
 }
 
 .mobile-menu_btn::after {
@@ -252,6 +252,7 @@ section {
     .logoTitles2 {
         font-size: 2.2rem;
     }
+
     .logo_wrapper::before {
         font-size: 3.5rem;
     }
@@ -291,17 +292,16 @@ sp
     }
     
     .header_nav {
-        visibility: hidden; /* animationをつけたいのでdisplay:none;では制御しない */
-        opacity: 0; 
+        /* visibility: hidden; */
+        display: none; 
         position: absolute;
         top: 88px;
         left: 0;
         width: 100%;
         margin: 0;
-        background: white;
+        background: #ffffff;
         box-shadow: 0px 11px 10px -10px rgba(0, 0, 0, 0.2);
         align-items: normal;
-        transition: all 1s; /* allじゃないと閉じる時にもアニメーションが付与されない */
     }
 
     .nav_items {
@@ -328,8 +328,20 @@ sp
 
     /* jsでactiveクラスをbodyに付与、その子要素として以下を指定していく */
     .active .header_nav {
-        visibility: visible;
-        opacity: 1;
+        display: block;
+        animation-name: fadeIn; /* .activeが付与されたらアニメーション開始 */
+        animation-duration: 0.5s;
+        animation-fill-mode: forwards;  /* opacity:1;を維持 */
+    }
+
+    @keyframes fadeIn {
+        0% {
+            opacity: 0;
+        }
+  
+        100% {
+            opacity: 1;
+        }
     }
 
     .active .mobile-menu_btn > span:nth-child(1) {
@@ -339,7 +351,7 @@ sp
 
     .active .mobile-menu_btn > span:nth-child(2) {
         transition-delay: 0s;
-        transform:  translateX(-18px) scaleX(0); /* 横にずれて消える */
+        transform: translateX(-18px) scaleX(0); /* 横にずれて消える */
     }
     
     .active .mobile-menu_btn > span:nth-child(3) {
@@ -365,8 +377,8 @@ sp
 ---------------------------------*/
 .profile {
     background: #fefeff;
-
 }
+
 .profile > .inner {
     width: 80%;
     margin: 0 auto;
@@ -383,11 +395,8 @@ sp
 }
 
 .profile > .inner > .wrapper {
-    background-image: url(../img/profile.jpg);
-    background-repeat: no-repeat;
-    background-size: cover; /* containだと下に余白が生まれる */
+    background: url(../img/profile.jpg) bottom / cover no-repeat; /* containだと下に余白が生まれる */
     padding: 0 5% 11% 50%; /* ここで文字の位置を調整 */
-    background-position: bottom;
     /* height: 34.5vw; paddingで高さを取るとpositionを使わないと中に文字を配置出来ない
     max-height: 663px;
     min-height: 400px; */
@@ -398,7 +407,7 @@ sp
     margin: 0 0 1.57em 0;
     padding-top: 2.9em;
     color: #000000;
-    font-size: calc(1.5rem + ((1vw - 9px) * 1.2745)); /* 15~28px */
+    font-size: calc(1.4rem + ((1vw - 7.2px) * 1.1667)); /* 14~28px */
     font-weight: 700;
     white-space: nowrap;
 }
@@ -410,13 +419,13 @@ sp
     left: 9em;
     color: #000000;
     font-family: "Font Awesome 5 Free";
-    font-size: calc(1.8rem + ((1vw - 7.2px) * 1.8333)); /* 18~40px */
+    font-size: calc(2rem + ((1vw - 7.2px) * 1.6667)); /* 20~40px */
     font-weight: 900;
 }
 
 .profile > .inner > .wrapper > .text {
     color: #000000;
-    font-size: calc(1rem + ((1vw - 5.6px) * 0.4412));
+    font-size: calc(1rem + ((1vw - 7.2px) * 0.8333)); /* 10~20px */
     font-weight: 400;
     line-height: 2;
     text-align: justify; /* 改行位置を揃える */
@@ -427,36 +436,31 @@ sp
 }
 
 /*
-表示崩れ防止 *1100~800px
+文字の最大値 
 ———————————*/
-@media (max-width:1100px) {
-    .profile > .inner > .wrapper > .title  {
-        /* padding-top: 2em;
-        margin-bottom: 1em; */
-        font-size: 1.7rem;
+@media (min-width:1920px) {
+    .profile > .inner > .wrapper > .title {
+        font-size: 28px;
     }
 
-    .profile > .inner > .wrapper > .text:not(:last-child) {
-        /* margin-bottom: 1.5em; */
-    }
-}
-
-/* @media (max-width:1000px) {
-    .profile > .inner > .wrapper > .title  {
-        font-size: 1.4rem;
-    }
-} */
-
-@media (max-width:900px) {
-    .profile > .inner > .wrapper > .title  {
-        font-size: 1.3rem;
+    .profile > .inner > .wrapper > .title::after {
+        font-size: 40px;
     }
 }
 
 /*
-sp *ここだけ800pxで切り替え
+表示崩れ防止 *1100~720px
 ———————————*/
-@media (max-width:800px) {
+@media (max-width:1000px) {
+    .profile > .inner > .wrapper {
+        padding-bottom: 4%; /* プロフィール文のズレを解消 */
+    }
+}
+
+/*
+sp
+———————————*/
+@media (max-width:720px) {
     .profile > .inner { 
         width: 90%;
         margin: 0 auto;
@@ -466,8 +470,8 @@ sp *ここだけ800pxで切り替え
         height: auto; 
         min-height: auto;
         padding: 3em;
-        background: #f3f3f3;
-        background-image: none;
+        border: 1px solid #000000;
+        background: none;
     }
 
     .profile > .inner > .wrapper > .title {
@@ -513,7 +517,7 @@ sp *ここだけ800pxで切り替え
     color: #000000;
 }
 
-.works .wrapper {
+.works > .wrapper {
     display: flex;
     flex-flow: wrap;
     justify-content: space-between;
@@ -528,10 +532,6 @@ sp *ここだけ800pxで切り替え
     border: solid 1px #000000;
     position: relative; /* .hover-darken用 */
     z-index: 0;
-}
-
-.card:last-child {
-    margin-top: 50px;
 }
 
 .active-hover .hover-darken::after {
@@ -550,7 +550,7 @@ sp *ここだけ800pxで切り替え
     align-items: center;
     justify-content: center;
     background-color: rgba(0, 0, 0, 0.4);
-    color: white;
+    color: #ffffff;
     font-size: 25px;
 }
 
@@ -566,11 +566,19 @@ sp *ここだけ800pxで切り替え
     transition: transform 0.3s ease;
 }
 
-.card:hover .card_img{
+.card:hover .card_img {
     transform: scale(1.05) ;
 }
 
-.overlay {
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    height: 100vh;
+}
+
+.modal > .overlay {
     position:absolute;
     top:0;
     left:0;
@@ -582,14 +590,6 @@ sp *ここだけ800pxで切り替え
     background:rgba(181,177,177,0.5); /* 透過させて後ろの画面が映るようにする */
 }
 
-.modal {
-    display: none;
-    position: fixed;
-    top: 0;
-    width: 100%;
-    height: 100vh;
-}
-
 .modal_content {
     position: absolute;
     top:50%;
@@ -599,16 +599,16 @@ sp *ここだけ800pxで切り替え
     width: 60%;
     margin: 0 auto;
     padding: 40px;
-    background: white;
+    background: #ffffff;
 }
 
-.modal .modal_imgWrapper {
+.modal_imgWrapper {
     display: block;
     width: 100%;
     margin-right: 20px;
 }
 
-.modal .modal_imgWrapper .modal_img {
+.modal_img {
     width: 100%;
     height: auto;
 }
@@ -618,9 +618,17 @@ sp *ここだけ800pxで切り替え
     display: inline-block;
 }
 
+.modal_text:first-child {
+    display: block;
+    margin-top: 10px;
+}
+
+.modal_text:nth-child(2) {
+    margin-top: 10px;
+}
+
 .modal_text > a {
     color: #617c8c;
-    /* text-emphasis: none; */
 }
 
 .active-hover .modal_text > a:hover {
@@ -634,21 +642,11 @@ sp *ここだけ800pxで切り替え
     color: #617c8c;
 }
 
-.modal_text:first-child {
-    display: block;
-    margin-top: 10px;
-}
-
-.modal_text:nth-child(2) {
-    margin-top: 10px;
-}
-
 /*
 sp
 ———————————*/
 @media (max-width:720px) {
     .works .wrapper {
-        /* justify-content: space-between; */
         flex-direction: column;
         align-items: center; /* 左右中央よせ */
         padding: 0;
@@ -657,13 +655,11 @@ sp
     .card {
         width: 90%;
         margin: 0 auto;
-        margin: auto 0;
     }
 
     .card + .card {
         margin-top: 65px;
     }
-
     
     .card .card_imgWrapper .card_img {
         width: 100%;
@@ -724,8 +720,8 @@ sp
     padding: 0.2em 0.5em;
     border: 1px solid #537FBD;
     border-radius: 6px;
-    box-shadow: 2px 2px 4px -2px gray inset, -2px -2px 4px -2px gray inset ;
-    background-color: #ffffff;    
+    box-shadow: 2px 2px 4px -2px rgba(128, 128, 128, 1) inset, -2px -2px 4px -2px gray inset;
+    background: #ffffff;    
     font-size: 2rem;
     line-height: 1.5;
 }
@@ -736,8 +732,8 @@ sp
     padding: 0.5em;
     border: 1px solid #537FBD;
     border-radius: 6px;
-    box-shadow: 2px 2px 4px -2px gray inset, -2px -2px 4px -2px gray inset ;
-    background-color: #ffffff;
+    box-shadow: 2px 2px 4px -2px rgba(128, 128, 128, 1) inset, -2px -2px 4px -2px gray inset;
+    background: #ffffff;
     font-size: 2rem;
     line-height: 1;
 }
@@ -747,7 +743,8 @@ sp
     margin: 0 auto;
     padding: 0.5em 4em;
     border: 1px solid #537FBD;
-    background-color: #ffffff;
+    box-shadow: 2px 2px 4px -2px rgba(128, 128, 128, 1) inset, -2px -2px 4px -2px gray inset;
+    background: #ffffff;
     color: #000000;
     font-size: 2rem;
     font-weight: 700;

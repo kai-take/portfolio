@@ -5,8 +5,7 @@
     <!-- タイトル -->
     <title>Kaito Takeuchi</title>
     <meta name="description" content="竹内快斗のポートフォリオサイトです。制作物などを載せています。">
-    <link rel="icon" type="image/x-icon" href="img/paint.png">
-    <!-- "Icon made by Freepik from www.flaticon.com" -->
+    <link rel="icon" type="image/x-icon" href="img/paint.png"><!-- "Icon made by Freepik from www.flaticon.com" -->
 
     <!-- エンコード 設定 -->
     <meta charset="utf-8">
@@ -21,7 +20,6 @@
 
     <!-- jQuery 読み込み -->
     <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"></script>
 
     <!-- Viewport 設定 -->
     <meta name="viewport" content="width=device-width,initial-scale=1">
@@ -33,7 +31,7 @@
         <div class="cover"></div> <!-- ハンバーガーメニューを閉じる為 -->
         
         <!-- ヘッダー -->
-        <header class="header"> <!-- wrapperに所属 -->
+        <header class="header"> <!-- スタックコンテキスト、wrapperに所属 -->
             <a href="#wrapper" class="logo_wrapper">
                 <div class="logoTitles">
                     <h1 class="logoTitle1">Kaito Takeuchi</h1>
@@ -62,7 +60,7 @@
 
         <!-- メイン -->
         <main>
-            <img src="img/main.jpg" alt="" class="mainVisual">
+            <img src="img/main.jpg" alt="筆と絵具" class="mainVisual">
 
             <!-- Profile -->
             <section id="profile" class="profile">
@@ -86,7 +84,6 @@
             </section>
             <!-- /Profile -->
 
-
             <!-- Works -->
             <section id="works" class="works"> <!-- wrapperに所属 -->
                 <h2 class="heading fadeIn">
@@ -98,7 +95,7 @@
                     <div class="card">
                         <a href="" class="modal-open hover-darken" data-target="#modal01"><!-- data-targetの値と表示するモーダルのID名を紐付け、#を忘れない-->
                             <span class="card_imgWrapper">
-                                <img src="img/modal_img1.png" alt="" class="card_img">
+                                <img src="img/modal_img1.png" alt="ホームページ「cosme」" class="card_img">
                             </span>
                         </a>
                     </div>
@@ -106,7 +103,7 @@
                     <div class="card">
                         <a href="" class="modal-open hover-darken" data-target="#modal02">
                             <span class="card_imgWrapper">
-                                <img src="img/modal_img2.png" alt="" class="card_img">
+                                <img src="img/modal_img2.png" alt="ホームページ「144lab」" class="card_img">
                             </span>
                         </a>
                     </div>
@@ -114,24 +111,17 @@
                     <div class="card">
                         <a href="" class="modal-open hover-darken" data-target="#modal03">
                             <span class="card_imgWrapper">
-                                <img src="img/modal_img3.png" alt="" class="card_img">
-                            </span>
-                        </a>
-                    </div>
-
-                    <div class="card">
-                        <a href="" class="modal-open hover-darken" data-target="#modal04">
-                            <span class="card_imgWrapper">
-                                <img src="img/modal_img4.png" alt="" class="card_img">
+                                <img src="img/modal_img3.png" alt="ホームページ「My portfolio」" class="card_img">
                             </span>
                         </a>
                     </div>
                 </div>
 
+                <!-- カードをクリックしたら表示される -->
                 <div id="modal01" class="modal">
                     <div class="overlay"></div>
                     <div class="modal_content">
-                        <span class="modal_imgWrapper"><img src="img/modal_img1.png" alt="" class="modal_img"></span>
+                        <span class="modal_imgWrapper"><img src="img/modal_img1.png" alt="ホームページ「cosme」" class="modal_img"></span>
 
                         <div class="modal_texts">
                             <p class="modal_text">デザインカンプからコーディングしました。レスポンシブ対応はしておりません。</p>
@@ -144,7 +134,7 @@
                 <div id="modal02" class="modal">
                     <div class="overlay"></div>
                     <div class="modal_content">
-                        <span class="modal_imgWrapper"><img src="img/modal_img2.png" alt="" class="modal_img"></span>
+                        <span class="modal_imgWrapper"><img src="img/modal_img2.png" alt="ホームページ「144lab」" class="modal_img"></span>
 
                         <div class="modal_texts">
                             <p class="modal_text">cosme同様、デザインカンプからコーディングしました。レスポンシブ対応はしておりません。</p>
@@ -155,29 +145,16 @@
                 </div>
 
                 <div id="modal03" class="modal">
-                    <div class="overlay"></div>
-                    <div class="modal_content">
-                        <span class="modal_imgWrapper"><img src="img/modal_img3.png" alt="" class="modal_img"></span>
-
-                        <div class="modal_texts">
-                            <p class="modal_text">デザインカンプからコーディングをしました。レスポンシブ対応して、jqueryで動きを付けて作成しております。コードの可読性にも気を配り、読みやすいコードを意識しています。</p>
-                            <p class="modal_text dummy"><a href="https://kai-take.github.io/padding-a-la-dog/" target="_blank" rel="noopener noreferrer">view site</a></p>
-                            <p class="modal_text"><a href="https://github.com/kai-take/padding-a-la-dog" target="_blank" rel="noopener noreferrer">github</a></p>
-                        </div>
-                    </div>
-                </div>
-
-                <div id="modal04" class="modal">
                     <div class="overlay"></div> 
                     <div class="modal_content">
-                        <span class="modal_imgWrapper"><img src="img/modal_img4.png" alt="" class="modal_img"></span>
+                        <span class="modal_imgWrapper"><img src="img/modal_img3.png" alt="ホームページ「My portfolio」" class="modal_img"></span>
 
                         <div class="modal_texts">
-                            <p class="modal_text">ご覧いただいているサイトになります。「padding a la dog」をベースに作成しています。全体で白を使い、文字は黒にしました。<br>白黒の中で絵具の画像を際立たせる効果を狙った事が一つと、デザインの意味として、まだweb製作者として何者でも無い自分を白とし、これからそこに色を加えていく意味での絵具をイメージしました。</p>
-                            <p class="modal_text"><a href="https://github.com/kai-take/padding-a-la-dog" target="_blank" rel="noopener noreferrer">github</a></p>
+                            <p class="modal_text">ご覧いただいているサイトになります。デザインのコンセプトとして、まだweb製作者として何者でも無い自分を白とし、これからそこに色を加えていく意味での絵具をイメージしました。<br>絵具の画像を際立たせる為、全体の色は白を使い、文字は黒にしました。</p>
+                            <p class="modal_text"><a href="https://github.com/kai-take/portfolio" target="_blank" rel="noopener noreferrer">github</a></p>
                         </div>
                     </div>
-                </div>
+                </div><!-- /wrapper-->
             </section>
             <!-- /Works -->
 
