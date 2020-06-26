@@ -6,8 +6,18 @@ $(function () { // 通常の記述はここに書いていく
         // スクロールの速度
         var speed = 400; // ミリ秒
 
-        // 固定ヘッダーのズレを解消するため,ヘッダー分の高さ
-        var height = -86;
+        // 固定ヘッダーのズレを解消するため,ヘッダー分の高さを格納
+        // その際、ヘッダーの高さがブレイクポイントで変わっていくに連れて、この値も合わせる
+        if (window.matchMedia('(min-width: 1920px)').matches) {
+            // PC表示の時の処理
+            var height = -86;
+
+        } else if (window.matchMedia('(max-width: 1920px)').matches){
+            // スマホ表示の時の処理
+            var height = -68;
+        } else {
+            var height = -50;
+        }
 
         // クリックしたaタグのhref属性（#、#about等）を取得し、変数に格納
         var href = $(this).attr("href");
@@ -33,54 +43,35 @@ $(function () { // 通常の記述はここに書いていく
     });
 
     /*
-    フェードイン  * animatedクラスを任意の位置にスクロールしたら付与する記述
-    ———————————*/
-    $(window).on('load scroll', function () { // ページの読み込み時かつスクロール時
-        var box = $('.fadeIn'); // fadeInクラスがついた要素を取得し、オブジェクト生成
-        var animated = 'animated';
-
-        box.each(function () {
-            var boxOffset = $(this).offset().top; // 指定した要素の位置の座標
-            var scrollPos = $(window).scrollTop(); // スクロール量
-            var wh = $(window).height(); // ページ全体の高さ
-
-            //画面内のどの位置で処理を実行するかで「100」の値を変更
-            if (scrollPos > boxOffset - wh + 100) {
-                $(this).addClass(animated);
-            }
-        });
-    });
-
-    /*
     ハンバーガーメニュー 
     ———————————*/
-    $(function () {
         $('.mobile-menu_btn,.nav-link,.cover').on('click', function () {
             $('body').toggleClass('active');
         });
         
         // fadeInで実装
         //   $('.mobile-menu_btn').on('click', function () {
-        //     $('body').toggleClass('active');
         //     $('.header_nav').fadeIn(); /* display:none;に対して有効 */
+        //     $('body').addClass('active');
         //   });
 
-        //   $('.nav-link,cover').on('click', function () {
-        //     $('.header_nav').fadeOut();
-        //     $('body').removeClass('active');
-        //   });
-    });
+        //   if ($('.header_nav').css('display') == 'block'){
+        //     $('.nav-link,cover,.mobile-menu_btn').on('click', function () {
+        //         $('.header_nav').fadeOut();
+        //         $('body').removeClass('active');
+        //     });
+        //   }
+
 
     /*
     モーダル 
     ———————————*/
-    $(function () {
-        $('.modal-open').each(function () {
+        $('.modal-open').each(function () { // 繰り返し処理
             $(this).on('click', function () {
-                var target = $(this).data('target'); // modal01や02を取得
+                var target = $(this).data('target'); // htmlで設定したdata-target(modal01や02)を取得
                 console.log(target);
 
-                var modal = $(target);
+                var modal = $(target); // targetで取得したID名が付与されてるhtml要素をオブジェクト化して変数に格納
                 console.log(modal);
 
                 $('.header').css('display', 'none');
@@ -88,17 +79,15 @@ $(function () { // 通常の記述はここに書いていく
                 return false;
             });
         });
-        $('.overlay').on('click', function () {
+        $('.overlay,.close-btn').on('click', function () {
             $('.header').css('display', 'flex');
             $('.modal').fadeOut();
             return false;
         });
-    });
 
     /*
     hoverの切り替え 
     ———————————*/
-    $(function () {
         $(window).on('load resize orientationchange', function () {
             if ($(window).width() <= 1024) { // 1024px以下はhover解除
                 $('body').removeClass('active-hover');
@@ -106,5 +95,52 @@ $(function () { // 通常の記述はここに書いていく
                 $('body').addClass('active-hover');
             }
         });
-    });
 });
+
+    /*
+    フェードイン  * animatedクラスを任意の位置にスクロールしたら付与する記述
+    ———————————*/
+    $(window).on('load scroll', function () { // ページの読み込み時かつスクロール時
+        var box = $('.fadeIn'); // fadeInクラスがついた要素を取得し、オブジェクト生成
+        var animated = 'animated';
+
+        var stroke = $('.stroke');
+        console.log(stroke);
+        var storkeAnimated = 'storkeAnimated';
+
+        box.each(function () {
+            var boxOffset = $(this).offset().top; // 指定した要素の位置の座標
+            var scrollPos = $(window).scrollTop(); // スクロール量
+            var wh = $(window).height(); // ページ全体の高さ
+
+
+
+            //画面内のどの位置で処理を実行するかで「100」の値を変更
+            if (scrollPos > boxOffset - wh + 100) {
+                $(this).addClass(animated);
+
+
+                // $(this).css('display', 'none').fadeIn(1000);
+                // console.log(this);
+            }
+        });
+    });
+
+    $(window).on('load scroll', function () { // ページの読み込み時かつスクロール時
+        var stroke = $('.stroke');
+        console.log(stroke);
+        var storkeAnimated = 'storkeAnimated';
+
+        stroke.each(function () {
+            var boxOffset = $(this).offset().top; 
+            var scrollPos = $(window).scrollTop(); 
+            var wh = $(window).height(); 
+
+
+
+            //画面内のどの位置で処理を実行するかで「100」の値を変更
+            if (scrollPos > boxOffset - wh + 100) {
+                $(this).addClass(storkeAnimated);
+            }
+        });
+    });

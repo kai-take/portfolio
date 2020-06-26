@@ -29,16 +29,17 @@
     <!-- ラッパー -->
     <div id="wrapper">
         <div class="cover"></div> <!-- ハンバーガーメニューを閉じる為 -->
-        
+
         <!-- ヘッダー -->
-        <header class="header"> <!-- スタックコンテキスト、wrapperに所属 -->
+        <header class="header">
+            <!-- スタックコンテキスト、wrapperに所属 -->
             <a href="#wrapper" class="logo_wrapper">
                 <div class="logoTitles">
                     <h1 class="logoTitle1">Kaito Takeuchi</h1>
-                    <h2 class="logoTitles2">My Portfolio</h2>
+                    <h2 class="logoTitles2">De branc</h2>
                 </div>
             </a>
-            
+
             <!-- ハンバーガーボタン -->
             <div class="mobile-menu_btn">
                 <span></span>
@@ -60,7 +61,10 @@
 
         <!-- メイン -->
         <main>
-            <img src="img/main.jpg" alt="筆と絵具" class="mainVisual">
+            <div class="j">
+                <img src="img/main.jpg" alt="筆と絵具" class="mainVisual">
+
+            </div>
 
             <!-- Profile -->
             <section id="profile" class="profile">
@@ -79,41 +83,60 @@
                             2019年の10月から、本格的にweb制作の学習を始めました。
                             MENTAを利用しメンターさんの下で主な学習を進め、HTML/CSS/jqueryを使ったコーディングをして来ました。
                         </p>
+
+                        <p class="text"><a href="">and more...</a></p>
                     </div><!-- /wrapper -->
                 </div><!-- /inner -->
             </section>
             <!-- /Profile -->
 
             <!-- Works -->
-            <section id="works" class="works"> <!-- wrapperに所属 -->
+            <section id="works" class="works">
+                <!-- wrapperに所属 -->
                 <h2 class="heading fadeIn">
                     <span class="heading_text">WORKS</span>
                     <span>制作物</span>
                 </h2>
 
                 <div class="wrapper">
+
+
+
                     <div class="card">
-                        <a href="" class="modal-open hover-darken" data-target="#modal01"><!-- data-targetの値と表示するモーダルのID名を紐付け、#を忘れない-->
-                            <span class="card_imgWrapper">
-                                <img src="img/modal_img1.png" alt="ホームページ「cosme」" class="card_img">
-                            </span>
-                        </a>
+                        <p class="siteName purple">cosme</p>
+
+                        <div class="card_content">
+                            <div class="modal-open hover-darken" data-target="#modal01">
+                                <!-- data-targetの値と表示するモーダルのID名を紐付け、#を忘れない-->
+                                <span class="card_imgWrapper">
+                                    <img src="img/modal_img1.png" alt="ホームページ「cosme」" class="card_img">
+                                </span>
+                            </div>
+                        </div>
                     </div>
 
                     <div class="card">
-                        <a href="" class="modal-open hover-darken" data-target="#modal02">
-                            <span class="card_imgWrapper">
-                                <img src="img/modal_img2.png" alt="ホームページ「144lab」" class="card_img">
-                            </span>
-                        </a>
+                        <p class="siteName red">144lab</p>
+
+                        <div class="card_content">
+                            <div class="modal-open hover-darken" data-target="#modal02">
+                                <span class="card_imgWrapper">
+                                    <img src="img/modal_img2.png" alt="ホームページ「144lab」" class="card_img">
+                                </span>
+                            </div>
+                        </div>
                     </div>
 
                     <div class="card">
-                        <a href="" class="modal-open hover-darken" data-target="#modal03">
-                            <span class="card_imgWrapper">
-                                <img src="img/modal_img3.png" alt="ホームページ「My portfolio」" class="card_img">
-                            </span>
-                        </a>
+                        <p class="siteName white">portfolio</p>
+
+                        <div class="card_content">
+                            <div class="modal-open hover-darken" data-target="#modal03">
+                                <span class="card_imgWrapper">
+                                    <img src="img/modal_img3.png" alt="ホームページ「My portfolio」" class="card_img">
+                                </span>
+                            </div>
+                        </div>
                     </div>
                 </div>
 
@@ -121,12 +144,15 @@
                 <div id="modal01" class="modal">
                     <div class="overlay"></div>
                     <div class="modal_content">
-                        <span class="modal_imgWrapper"><img src="img/modal_img1.png" alt="ホームページ「cosme」" class="modal_img"></span>
+                        <span class="modal_imgWrapper"><img src="img/modal_img1.png" alt="ホームページ「cosme」"
+                                class="modal_img"></span>
 
                         <div class="modal_texts">
-                            <p class="modal_text">デザインカンプからコーディングしました。レスポンシブ対応はしておりません。</p>
-                            <p class="modal_text dummy"><a href="https://kai-take.github.io/cosme/" target="_blank" rel="noopener noreferrer">view site</a></p>
-                            <p class="modal_text"><a href="https://github.com/kai-take/cosme/" target="_blank" rel="noopener noreferrer">github</a></p>
+                            <p class="modal_text">デザインカンプからコーディングしました。</p>
+                            <p class="modal_text dummy"><a href="https://kai-take.github.io/cosme/" target="_blank"
+                                    rel="noopener noreferrer">view site</a></p>
+                            <p class="modal_text"><a href="https://github.com/kai-take/cosme/" target="_blank"
+                                    rel="noopener noreferrer">github</a></p>
                         </div>
                     </div>
                 </div>
@@ -134,24 +160,36 @@
                 <div id="modal02" class="modal">
                     <div class="overlay"></div>
                     <div class="modal_content">
-                        <span class="modal_imgWrapper"><img src="img/modal_img2.png" alt="ホームページ「144lab」" class="modal_img"></span>
+                        <div class="close-btn">
+                            <span></span>
+                            <span></span>
+                        </div>
+
+                        <span class="modal_imgWrapper"><img src="img/modal_img2.png" alt="ホームページ「144lab」"
+                                class="modal_img"></span>
 
                         <div class="modal_texts">
-                            <p class="modal_text">cosme同様、デザインカンプからコーディングしました。レスポンシブ対応はしておりません。</p>
-                            <p class="modal_text dummy"><a href="https://kai-take.github.io/144lab/" target="_blank" rel="noopener noreferrer">view site</a></p>
-                            <p class="modal_text"><a href="https://github.com/kai-take/144lab/" target="_blank" rel="noopener noreferrer">github</a></p>
+                            <p class="modal_text">cosme同様、デザインカンプからコーディングしました。</p>
+                            <!-- <p class="modal_text dummy"><a href="https://kai-take.github.io/144lab/" target="_blank" rel="noopener noreferrer">view site</a></p> -->
+                            <!-- <p class="modal_text"><a href="https://github.com/kai-take/144lab/" target="_blank" rel="noopener noreferrer">github</a></p> -->
+                            <a class="modal_btn">view site</a>
+                            <a class="modal_btn">github</a>
                         </div>
                     </div>
                 </div>
 
                 <div id="modal03" class="modal">
-                    <div class="overlay"></div> 
+                    <div class="overlay"></div>
                     <div class="modal_content">
-                        <span class="modal_imgWrapper"><img src="img/modal_img3.png" alt="ホームページ「My portfolio」" class="modal_img"></span>
+                        <span class="modal_imgWrapper"><img src="img/modal_img3.png" alt="ホームページ「My portfolio」"
+                                class="modal_img"></span>
 
                         <div class="modal_texts">
-                            <p class="modal_text">ご覧いただいているサイトになります。デザインのコンセプトとして、まだweb製作者として何者でも無い自分を白とし、これからそこに色を加えていく意味での絵具をイメージしました。<br>絵具の画像を際立たせる為、全体の色は白を使い、文字は黒にしました。</p>
-                            <p class="modal_text"><a href="https://github.com/kai-take/portfolio" target="_blank" rel="noopener noreferrer">github</a></p>
+                            <p class="modal_text">
+                                ご覧いただいているサイトになります。デザインのコンセプトとして、まだweb製作者として何者でも無い自分を白とし、これからそこに色を加えていく意味での絵具をイメージしました。<br>絵具の画像を際立たせる為、全体の色は白を使い、文字は黒にしました。
+                            </p>
+                            <p class="modal_text"><a href="https://github.com/kai-take/portfolio" target="_blank"
+                                    rel="noopener noreferrer">github</a></p>
                         </div>
                     </div>
                 </div><!-- /wrapper-->
@@ -199,13 +237,81 @@
 
         <!-- フッター -->
         <footer class="footer">
+            <div class="boid"></div>
             <p class="copyright"><small>COPYRIGHT©︎ My Portfolio ALL RIGHTS RESERVED.</small></p>
         </footer>
         <!-- /フッター -->
+
+
+        <div class="k">
+
+            <svg version="1.1" id="レイヤー_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+                x="0px" y="0px" viewBox="0 0 151.98 60.98" style="enable-background:new 0 0 151.98 60.98;"
+                xml:space="preserve">
+                <g>
+                    <path class="st0"
+                        d="M35.34,20.7c0.19-0.05,0.48-0.08,0.86-0.11c0.38-0.02,0.76,0,1.12,0.07c0.36,0.07,0.67,0.19,0.94,0.36
+   c0.26,0.17,0.42,0.37,0.47,0.61c0.1,0.58,0.01,1.09-0.25,1.55c-0.26,0.46-0.73,0.85-1.4,1.19c-1.82,0.86-3.72,1.84-5.69,2.92
+   c-1.97,1.08-3.65,2.05-5.04,2.92c0.86,0.58,1.86,1.22,2.99,1.94c1.13,0.72,2.29,1.48,3.49,2.27c1.2,0.79,2.4,1.63,3.6,2.52
+   c1.2,0.89,2.33,1.76,3.38,2.63c0.96,0.82,1.13,1.56,0.5,2.23c-0.29,0.34-0.76,0.58-1.4,0.72s-1.26,0.07-1.84-0.22
+   c-1.06-0.53-2.21-1.16-3.46-1.91c-1.25-0.74-2.52-1.51-3.82-2.3c-1.3-0.79-2.56-1.58-3.78-2.38c-1.22-0.79-2.34-1.52-3.35-2.2
+   c0.19,1.68,0.37,3.36,0.54,5.04c0.17,1.68,0.32,3.36,0.47,5.04c0.29,0.91,0.26,1.66-0.07,2.23c-0.34,0.58-0.89,0.84-1.66,0.79
+   c-0.82-0.14-1.42-0.47-1.8-0.97c-0.38-0.5-0.67-1.16-0.86-1.98c-0.29-1.97-0.61-4.29-0.97-6.98c-0.36-2.69-0.73-5.47-1.12-8.35
+   c-0.38-2.88-0.76-5.69-1.12-8.42c-0.36-2.74-0.68-5.16-0.97-7.27c-0.1-0.67-0.16-1.4-0.18-2.2c-0.02-0.79,0.23-1.31,0.76-1.55
+   c0.72-0.29,1.46-0.13,2.23,0.47c0.77,0.6,1.34,1.5,1.73,2.7c0.38,2.21,0.77,4.61,1.15,7.2c0.38,2.59,0.77,5.33,1.15,8.21
+   c0.96-0.58,2.08-1.21,3.35-1.91c1.27-0.7,2.54-1.37,3.82-2.02c1.27-0.65,2.46-1.23,3.56-1.76C33.78,21.25,34.66,20.89,35.34,20.7z" />
+                    <path class="st0" d="M62.77,17.6c0.19,1.34,0.35,2.77,0.47,4.28c0.12,1.51,0.22,3.04,0.29,4.57c0.07,1.54,0.11,3.02,0.11,4.46
+   s-0.02,2.74-0.07,3.89c1.54,1.06,2.46,1.99,2.77,2.81c0.31,0.82,0.35,1.54,0.11,2.16c-0.29,0.86-0.8,1.31-1.55,1.33
+   c-0.75,0.02-1.6-0.23-2.56-0.76c-0.67,0.48-1.44,1-2.3,1.55c-0.86,0.55-1.78,1.08-2.74,1.58c-0.96,0.5-1.92,0.95-2.88,1.33
+   c-0.96,0.38-1.85,0.65-2.66,0.79c-1.54,0.24-2.92-0.05-4.14-0.86c-1.22-0.82-2.05-2.04-2.48-3.67c-0.29-1.1-0.36-2.24-0.22-3.42
+   c0.14-1.18,0.5-2.3,1.08-3.38c0.58-1.08,1.36-2.05,2.34-2.92c0.98-0.86,2.15-1.54,3.49-2.02c0.34-0.14,0.8-0.26,1.4-0.36
+   c0.6-0.1,1.22-0.13,1.87-0.11c0.65,0.02,1.31,0.16,1.98,0.4c0.67,0.24,1.3,0.65,1.87,1.22c0-0.82-0.01-1.72-0.04-2.7
+   c-0.02-0.98-0.06-1.98-0.11-2.99c-0.05-1.01-0.11-1.96-0.18-2.84c-0.07-0.89-0.16-1.64-0.25-2.27c-0.1-0.72-0.37-1.16-0.83-1.33
+   c-0.46-0.17-1.02-0.13-1.69,0.11c-1.15,0.38-2.5,1.13-4.03,2.23c-1.54,1.1-3,2.28-4.39,3.53c-0.43,0.43-0.92,0.62-1.48,0.58
+   c-0.55-0.05-1.02-0.26-1.4-0.65c-0.38-0.38-0.6-0.83-0.65-1.33c-0.05-0.5,0.14-1.04,0.58-1.62c0.82-0.86,1.73-1.75,2.74-2.66
+   c1.01-0.91,2.06-1.74,3.17-2.48c1.1-0.74,2.23-1.36,3.38-1.84c1.15-0.48,2.3-0.74,3.46-0.79c1.68-0.05,2.98,0.32,3.89,1.12
+   C62.02,15.33,62.58,16.35,62.77,17.6z M54.42,33.08c-0.62,0.14-1.28,0.44-1.98,0.9c-0.7,0.46-1.32,1.01-1.87,1.66
+   c-0.55,0.65-0.96,1.37-1.22,2.16c-0.26,0.79-0.28,1.57-0.04,2.34c0.1,0.29,0.3,0.5,0.61,0.65c0.31,0.14,0.66,0.17,1.04,0.07
+   c1.15-0.24,2.46-0.71,3.92-1.4c1.46-0.7,2.63-1.45,3.49-2.27c0-0.29-0.14-0.66-0.43-1.12c-0.29-0.46-0.62-0.91-1.01-1.37
+   c-0.38-0.46-0.8-0.85-1.26-1.19C55.22,33.18,54.8,33.03,54.42,33.08z" />
+                    <path class="st0"
+                        d="M82.71,14.86c-0.1,0.48-0.43,0.74-1.01,0.79c-0.58,0.05-1.06,0.07-1.44,0.07c-1.2,0.05-2.44,0.17-3.71,0.36
+   c-1.27,0.19-2.6,0.48-4,0.86c-0.58,0.19-1.2,0.12-1.87-0.22c-0.67-0.34-1.08-1.01-1.22-2.02c0-0.38,0.14-0.7,0.43-0.94
+   c0.29-0.24,0.62-0.46,1.01-0.65c0.62-0.29,1.37-0.54,2.23-0.76c0.86-0.22,1.74-0.37,2.63-0.47c0.89-0.1,1.74-0.13,2.56-0.11
+   c0.82,0.02,1.49,0.11,2.02,0.25c0.77,0.24,1.38,0.6,1.84,1.08C82.63,13.62,82.81,14.19,82.71,14.86z M81.05,38.84
+   c0.34,0.77,0.52,1.6,0.54,2.48c0.02,0.89-0.23,1.5-0.76,1.84c-0.67,0.43-1.39,0.41-2.16-0.07c-0.77-0.48-1.34-1.13-1.73-1.94
+   c-0.53-1.01-0.94-2.24-1.22-3.71c-0.29-1.46-0.5-2.92-0.65-4.36s-0.23-2.78-0.25-4.03c-0.02-1.25-0.04-2.18-0.04-2.81
+   c0.05-0.67,0.24-1.3,0.58-1.87c0.33-0.58,0.77-0.91,1.3-1.01c0.86,0.05,1.56,0.44,2.09,1.19c0.53,0.74,0.77,1.67,0.72,2.77
+   c0,0.86,0.02,1.82,0.07,2.88c0.05,1.06,0.14,2.11,0.29,3.17c0.14,1.06,0.31,2.08,0.5,3.06C80.53,37.41,80.77,38.22,81.05,38.84z" />
+                    <path class="st0" d="M104.38,24.94c0.91-0.05,1.82,0.17,2.74,0.65c0.91,0.48,1.37,1.22,1.37,2.23c-0.1,0.82-0.54,1.33-1.33,1.55
+   c-0.79,0.22-1.43,0.32-1.91,0.32c-0.96,0-1.99,0.02-3.1,0.07c-1.11,0.05-2.23,0.12-3.38,0.22c-0.1,1.58-0.18,3.07-0.25,4.46
+   c-0.07,1.39-0.13,2.63-0.18,3.71c-0.05,1.08-0.07,1.96-0.07,2.63c0,0.67,0.02,1.03,0.07,1.08c1.06-0.19,2.2-0.52,3.42-0.97
+   c1.22-0.46,2.45-0.96,3.67-1.51c1.22-0.55,2.42-1.13,3.6-1.73c1.17-0.6,2.29-1.16,3.35-1.69c0.48-0.24,0.92-0.31,1.33-0.22
+   c0.41,0.1,0.66,0.31,0.76,0.65c0.1,0.53,0.02,1.18-0.22,1.94c-0.24,0.77-0.67,1.46-1.3,2.09c-0.72,0.58-1.67,1.24-2.84,1.98
+   c-1.18,0.74-2.44,1.45-3.78,2.12c-1.34,0.67-2.7,1.26-4.07,1.76c-1.37,0.5-2.58,0.8-3.64,0.9c-1.58,0.14-2.78-0.29-3.6-1.3
+   c-0.82-1.01-1.27-2.28-1.37-3.82c-0.1-1.54-0.11-3.31-0.04-5.33c0.07-2.02,0.16-4.15,0.25-6.41c-0.91,0.1-1.79,0.18-2.63,0.25
+   c-0.84,0.07-1.64,0.16-2.41,0.25c-0.62,0-1.31-0.14-2.05-0.43c-0.75-0.29-1.12-0.84-1.12-1.66c0-0.29,0.12-0.67,0.36-1.15
+   c0.24-0.48,0.77-0.84,1.58-1.08c1.97-0.34,4.15-0.62,6.55-0.86c0.14-2.26,0.31-4.44,0.5-6.55c0.19-2.11,0.36-4.03,0.5-5.76
+   c0.05-0.58,0.22-1.08,0.5-1.51s0.6-0.65,0.94-0.65c0.82-0.05,1.6,0.16,2.34,0.61c0.74,0.46,1.12,0.97,1.12,1.55
+   c-0.19,1.63-0.37,3.48-0.54,5.54c-0.17,2.06-0.32,4.18-0.47,6.34c0.96-0.1,1.88-0.16,2.77-0.18
+   C102.71,25.03,103.57,24.99,104.38,24.94z" />
+                    <path class="st0" d="M133.97,19.11c1.44,0.53,2.65,1.32,3.64,2.38c0.98,1.06,1.74,2.24,2.27,3.56c0.53,1.32,0.83,2.68,0.9,4.07
+   c0.07,1.39-0.08,2.69-0.47,3.89c-0.53,1.34-1.2,2.66-2.02,3.96c-0.82,1.3-1.75,2.45-2.81,3.46c-1.06,1.01-2.26,1.82-3.6,2.45
+   c-1.34,0.62-2.83,0.94-4.46,0.94c-1.97,0-3.62-0.46-4.97-1.37c-1.34-0.91-2.4-2.09-3.17-3.53c-0.77-1.44-1.26-3.07-1.48-4.9
+   c-0.22-1.82-0.18-3.65,0.11-5.47c0.19-1.34,0.52-2.65,0.97-3.92c0.46-1.27,1.04-2.4,1.76-3.38c0.72-0.98,1.55-1.79,2.48-2.41
+   c0.94-0.62,2-0.94,3.2-0.94c0.67,0,1.51,0.13,2.52,0.4c1.01,0.26,1.94,0.64,2.81,1.12C132.29,18.82,133.06,18.73,133.97,19.11z
+    M131.24,24.37c-0.53-0.33-1.14-0.78-1.84-1.33c-0.7-0.55-1.31-0.83-1.84-0.83c-0.58,0-1.14,0.26-1.69,0.79
+   c-0.55,0.53-1.03,1.14-1.44,1.84c-0.41,0.7-0.76,1.4-1.04,2.12c-0.29,0.72-0.48,1.3-0.58,1.73c-0.14,0.72-0.24,1.58-0.29,2.59
+   c-0.05,1.01,0.02,2,0.22,2.99c0.19,0.98,0.56,1.87,1.12,2.66c0.55,0.79,1.38,1.36,2.48,1.69c0.67,0.19,1.46,0.18,2.38-0.04
+   c0.91-0.22,1.81-0.61,2.7-1.19c0.89-0.58,1.73-1.34,2.52-2.3c0.79-0.96,1.4-2.06,1.84-3.31c0.48-1.39,0.49-2.84,0.04-4.36
+   s-1.38-2.6-2.77-3.28c-0.34,0.24-0.67,0.36-1.01,0.36C131.69,24.51,131.43,24.47,131.24,24.37z" />
+                </g>
+            </svg>
+        </div>
+
     </div>
     <!-- /ラッパー -->
 
     <script src="js/script.js"></script>
-</body>
 
 </html>
