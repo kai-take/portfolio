@@ -144,3 +144,9 @@ $(function () { // 通常の記述はここに書いていく
             }
         });
     });
+
+//     $(function(){
+//         const target = Array.from(document.querySelectorAll('#mask2 path'));
+// const phw = new PlayHandwriting(target, speed, interval); // 第一引数に要素（path要素を指定）、第二引数にスピード（数が小さい方が早い）、第三引数にpath間のインターバル（ミリ秒）
+// phw.playAnimation();
+// });
