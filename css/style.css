@@ -75,15 +75,15 @@ section {
     font-size: 1.2rem;
 }
 
-.fadeIn {
+/* .fadeIn {
     opacity: 0; 
-    /* jqueryでクラスを付与して表示する */
+    jqueryでクラスを付与して表示する
     transition: opacity 1s;
 }
 
 .fadeIn.animated {
     opacity: 1;
-}
+} */
 
 /*
 表示崩れ防止 
@@ -225,7 +225,7 @@ section {
     position: relative;
 }
 
-.mobile-menu_btn::after {
+/* .mobile-menu_btn::after {
     content: 'MENU';
     position: absolute;
     top: 34px;
@@ -234,13 +234,13 @@ section {
     color: #333;
     font-size: 0.8rem;
     text-align: center;
-}
+} */
 
 .mobile-menu_btn > span {
     display: block;
-    width: 45px;
-    min-width: 45px;
-    height: 5px;
+    width: 34px;
+    min-width: 34px;
+    height: 3px;
     background: #333;
     transition: transform 0.7s;
 }
@@ -254,7 +254,7 @@ section {
         /* height: ; */
     }
 }
-@media (max-width:1920px) {
+@media (min-width:1024px) {
     .header {
         height: 68px;
     }
@@ -340,7 +340,7 @@ sp
         /* visibility: hidden; */
         display: none; 
         position: absolute;
-        top: 88px;
+        top: 50px;
         left: 0;
         width: 100%;
         margin: 0;
@@ -391,7 +391,7 @@ sp
 
     .active .mobile-menu_btn > span:nth-child(1) {
         transition-delay: 70ms;
-        transform: translateY(15px) rotate(135deg); /* heightとmargin-bottomを足した値 */
+        transform: translateY(13px) rotate(135deg); /* heightとmargin-bottomを足した値 */
     }
 
     .active .mobile-menu_btn > span:nth-child(2) {
@@ -401,7 +401,7 @@ sp
     
     .active .mobile-menu_btn > span:nth-child(3) {
         transition-delay: 140ms;
-        transform: translateY(-15px) rotate(-135deg);
+        transform: translateY(-13px) rotate(-135deg);
     }
 }    
 
@@ -426,58 +426,181 @@ sp
 
 .profile > .inner {
     width: 80%;
-    margin: 0 auto;
+    margin: 0  auto 0 13%;
+    /* min-width: 950px; */
 }
 
 .profile > .heading > .heading_text {
+    position: relative;
     border-bottom: solid 2px #333;
     color: #333;
+    overflow: hidden;
+    transition: 1s;
+    transition-delay: 0.5s;
+    /* transform: scaleX(0); */
+}
+
+.profile .heading .heading_text::before, .profile > .heading > span::before {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: red;
+    transform-origin: left;
+    transition: 2s;
+    transition-delay: 0s;
+    content: "";
+    transform: translateX(-150%);
+}
+
+.profile .heading_text.animated {
+    transform: scaleX(1);
+}
+
+.profile .heading_text.animated::before,.heading > span.animated::before {
+    transform: translateX(100%);
 }
 
 .profile > .heading > span {
     color: #333;
     font-weight: 500;
+    position: relative;
+    overflow: hidden;
+    transform: scaleX(0);
+}
+
+.profile > .heading > span.animated {
+    transform: scaleX(1);
 }
 
 .profile > .inner > .wrapper {
     background: url(../img/profile.jpg) bottom / cover no-repeat; /* containだと下に余白が生まれる */
-    padding: 0 5% 11% 50%; /* ここで文字の位置を調整 */
+    padding: 0 5% 0 50%; /* ここで文字の位置を調整 */
     /* height: 34.5vw; paddingで高さを取るとpositionを使わないと中に文字を配置出来ない
     max-height: 663px;
     min-height: 400px; */
 }
 
-.profile > .inner > .wrapper > .title {
+.square {
+    background: white;
+    width: 400px;
+    height: 400px;
+    /* width: 75%;
+    height: 67%; */
+    position: relative;
+}
+
+.square .content {
+    padding: 70px;
+}
+
+.square .content span{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: thin solid black;
+    border-radius: 38% 62% 63% 37% / 41% 44% 56% 59%;
+    transition: 0.2s;
+}
+
+.square .content span:nth-child(1) {
+    animation: circle 6s infinite;
+}
+
+
+.square .content span:nth-child(2) {
+    animation: circle 4s infinite;
+}
+
+.square .content span:nth-child(3) {
+    animation: circle 3s infinite;
+}
+
+@keyframes circle {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+.square:hover span:nth-child(1){
+    border: none;
+    background: rgba(12, 157, 176, 0.8);
+}
+
+.square:hover span:nth-child(2){
+    border: none;
+    background: rgba(12, 157, 176, 0.8);
+}
+
+.square:hover span:nth-child(3){
+    border: none;
+    background: rgba(12, 157, 176, 0.8);
+}
+
+.square .content .title, .square .content .text {
+    color: black;
+    text-align: center;
+    position: relative;
+    z-index: 5;
+}
+
+.square .content .title {
+    font-size: 16px;
+    padding-bottom: 20px;
+}
+
+.square .content .text {
+    font-size: 14px;
+    padding-bottom: 10px;
+}
+
+.square .content .link{
+
+}
+
+
+/* .profile > .inner > .wrapper > .title {
     position: relative;
     margin: 0 0 1.57em 0;
     padding-top: 2.9em;
     color: #333;
-    font-size: calc(1.4rem + ((1vw - 7.2px) * 1.1667)); /* 14~28px */
+    font-size: calc(1.4rem + ((1vw - 7.2px) * 1.1667)); 
+    14~28px
     font-weight: 700;
     white-space: nowrap;
-}
+} */
 
-.profile > .inner > .wrapper > .title::after {
+/* .profile > .inner > .wrapper > .title::after {
     content: "\f304";
     position: absolute;
     top: 2em;
     left: 9em;
     color: #333;
     font-family: "Font Awesome 5 Free";
-    font-size: calc(2rem + ((1vw - 7.2px) * 1.6667)); /* 20~40px */
+    font-size: calc(2rem + ((1vw - 7.2px) * 1.6667)); 
+    20~40px
     font-weight: 900;
-}
+} */
 
+/* 
 .profile > .inner > .wrapper > .text {
     color: #333;
-    font-size: calc(1rem + ((1vw - 7.2px) * 0.8333)); /* 10~20px */
+    font-size: calc(1rem + ((1vw - 7.2px) * 0.8333)); 
+    10~20px
     font-weight: 400;
     line-height: 2;
-    /* text-align: justify; 改行位置を揃える. */
-}
+    text-align: justify; 改行位置を揃える.
+} */
 
 .profile > .inner > .wrapper > .text:not(:last-child) {
-    margin-bottom: 2em;
+    /* margin-bottom: 2em; */
 }
 
 /*
@@ -496,9 +619,37 @@ sp
 /*
 表示崩れ防止 *1100~720px
 ———————————*/
+
+
+@media (max-width:1100px) {
+    .profile > .inner {
+        margin: 0  auto 0 10%;
+    }
+
+    .square {
+        width: 250px;
+        height: 250px;
+    }
+    
+    .square .content {
+        padding: 50px;
+    }
+
+    .square .content .title {
+        font-size: 12px;
+        padding-bottom: 10px;
+    }
+    
+    .square .content .text {
+        font-size: 10px;
+        padding-bottom: 10px;
+    }
+}
+
 @media (max-width:1000px) {
     .profile > .inner > .wrapper {
-        padding-bottom: 4%; /* プロフィール文のズレを解消 */
+        /* padding-bottom: 4%;  */
+        /* プロフィール文のズレを解消 */
     }
 }
 
@@ -511,12 +662,33 @@ sp
         margin: 0 auto;
     }
     
+    
     .profile > .inner > .wrapper {
         height: auto; 
         min-height: auto;
-        padding: 3em;
-        border: 1px solid #333;
+        padding: 0;
+        /* border: 1px solid #333; */
         background: none;
+    }
+
+    .square {
+        width: 300px;
+        height: 300px;
+        margin: 0 auto;
+    }
+    
+    .square .content {
+        padding: 50px;
+    }
+
+    .square .content .title {
+        font-size: 12px;
+        padding-bottom: 10px;
+    }
+    
+    .square .content .text {
+        font-size: 10px;
+        padding-bottom: 10px;
     }
 
     .profile > .inner > .wrapper > .title {
@@ -544,22 +716,29 @@ sp
     }
 }
 
+@media (max-width:400px) {
+    .square {
+        width: 260px;
+        height: 260px;
+    }
+}
+
 /*---------------------------------
 
  ワークス
 
 ---------------------------------*/
 .works {
-    background: rgba(240, 240, 240,1);
+    background: #222423;
 }
 
 .works > .heading > .heading_text {
-    border-bottom: solid 2px #333;
-    color: #333;
+    border-bottom: solid 2px #fefeff;
+    color: #fefeff;
 }
 
 .works > .heading > span {
-    color: #333;
+    color: #fefeff;
 }
 
 .works > .wrapper {
@@ -685,8 +864,36 @@ sp
     z-index: 2;
     width: 60%;
     margin: 0 auto;
-    padding: 60px;
+    padding: 5em;
     background: #ffffff;
+}
+
+.close-btn {
+    /* height: 100%; */
+    position: absolute;
+    top: 3em;
+    right: 1em;
+}
+
+.close-btn > span {
+    background: black;
+    width: 30px;
+    height: 2px;
+    margin-bottom: 7px;
+    display: block;
+    cursor: pointer;
+}
+
+.close-btn > span:nth-child(2) {
+    margin-bottom: 0;
+}
+
+.close-btn > span:nth-child(1) {
+    transform: translateY(0px) rotate(135deg); 
+}
+
+.close-btn > span:nth-child(2) {
+    transform: translateY(-9px) rotate(-135deg);
 }
 
 .modal_imgWrapper {
@@ -715,6 +922,60 @@ sp
     margin-top: 10px;
 }
 
+
+/* モーダルボタン */
+.corner-button {
+    background: transparent;
+    border: 3px solid currentColor;
+    padding: 5px;
+    font-size: 1rem;
+    color: black; /* 文字の色 */
+    position: relative;
+    transition: color 0.3s;
+    margin: 10px;
+    display: inline-block;
+}
+
+.corner-button span {
+    position: relative;
+    z-index: 2;
+    font-size: 12px;
+}
+
+.corner-button::before, .corner-button::after {
+    content: '';
+    position: absolute;
+    background: white;
+    z-index: 1;
+    transition: width 0.3s, height 0.3s;
+}
+
+.corner-button::before {
+    width: 17px;
+    height: 143%;
+    top: -0.6rem; /* 枠線分ずらしている */
+    left: 50%;
+    transform: translateX(-50%);
+}
+.corner-button::after {
+    height: 11px;
+    width: 127%;
+    left: -0.7rem; 
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.corner-button:hover {
+    color: purple;
+}
+
+.corner-button:hover::before {
+    width: 0; /* 線が繋がる */
+}
+.corner-button:hover::after {
+    height: 0;
+}
+
 .modal_text > a {
     color: #617c8c;
 }
@@ -739,6 +1000,10 @@ sp
         align-items: center; /* 左右中央よせ */
         padding: 0;
     }
+
+    .card {
+        width: 85%;
+    }
     
     .card_content {
         width: 90%;
@@ -757,7 +1022,15 @@ sp
     .modal_content {
         top: 40%;
         width: 95%;
-        padding: 20px;
+        padding: 30px;
+    }
+
+    .close-btn {
+        top: 2em;
+    }
+
+    .close-btn > span {
+        width: 22px;
     }
 
     .modal_text {
@@ -878,22 +1151,16 @@ sp
 .footer {
     width: 100%;
     padding: 79px 0;
-    background: rgba(240, 240, 240,1);
+    background: #222423;
     position: relative;
 }
 
 .copyright {
-    color: #333;
+    color: #fefeff;
     font-size: 1.2rem;
     font-weight: 700;
     letter-spacing: 0.1em;
     text-align: center;
-}
-
-.boid {
-    background-image: url(/img/b.png);
-    background-repeat: no-repeat;
-    position: absolute;
 }
 
 /*
@@ -912,33 +1179,7 @@ sp
 
 
 
-.close-btn {
-    height: 100%;
-    position: absolute;
-    top: 3em;
-    right: 1em;
-}
 
-.close-btn > span {
-    background: black;
-    width: 50px;
-    height: 10px;
-    margin-bottom: 7px;
-    display: block;
-    cursor: pointer;
-}
-
-.close-btn > span:nth-child(2) {
-    margin-bottom: 0;
-}
-
-.close-btn > span:nth-child(1) {
-    transform: translateY(0px) rotate(135deg); 
-}
-
-.close-btn > span:nth-child(2) {
-    transform: translateY(-17px) rotate(-135deg);
-}
 
 
 .modal_btn {
@@ -958,9 +1199,6 @@ sp
 .modal_btn + .modal_btn {
     margin-left: 10px;
 }
-
-
-
 
 
 .svg {
@@ -1025,57 +1263,4 @@ sp
     }
 }
   
-/* モーダルボタン */
-  .corner-button {
-    background: transparent;
-    border: 5px solid currentColor;
-    padding: 5px;
-    font-size: 1rem;
-    color: #06c17f; /* 文字の色 */
-    position: relative;
-    transition: color 0.3s;
-    margin: 100px;
-  }
 
-  .corner-button span {
-    position: relative;
-    z-index: 2;
-  }
-
-  .corner-button::before, .corner-button::after {
-    content: '';
-    position: absolute;
-    background: white;
-    z-index: 1;
-    transition: width 0.3s, height 0.3s;
-  }
-
-  .corner-button::before {
-    width: 17px;
-    height: 138%;
-    top: -0.5rem; /* 枠線分ずらしている */
-    left: 50%;
-    transform: translateX(-50%);
-  }
-  .corner-button::after {
-    height: 11px;
-    width: 123%;
-    left: -0.5rem; 
-    top: 50%;
-    transform: translateY(-50%);
-  }
-
-  .corner-button:hover {
-    color: purple;
-  }
-
-  .corner-button:hover::before {
-    width: 0; /* 線が繋がる */
-  }
-  .corner-button:hover::after {
-    height: 0;
-  }
-
-
-
-  

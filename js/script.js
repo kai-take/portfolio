@@ -12,13 +12,13 @@ $(function () { // 通常の記述はここに書いていく
             // PC表示の時の処理
             var height = -86;
 
-        } else if (window.matchMedia('(max-width: 1920px)').matches){
+        } else if (window.matchMedia('(min-width: 1024px)').matches){
             // スマホ表示の時の処理
             var height = -68;
         } else {
             var height = -50;
         }
-
+        
         // クリックしたaタグのhref属性（#、#about等）を取得し、変数に格納
         var href = $(this).attr("href");
         // thisとする事で処理を切り分けている、thisにはクリックしたhtml要素が格納されている。
@@ -75,6 +75,7 @@ $(function () { // 通常の記述はここに書いていく
                 console.log(modal);
 
                 $('.header').css('display', 'none');
+                $('.square .content .title, .square .content .text').css('z-index', '0');
                 $(modal).fadeIn();
                 return false;
             });
@@ -118,8 +119,6 @@ $(function () { // 通常の記述はここに書いていく
             //画面内のどの位置で処理を実行するかで「100」の値を変更
             if (scrollPos > boxOffset - wh + 100) {
                 $(this).addClass(animated);
-
-
                 // $(this).css('display', 'none').fadeIn(1000);
                 // console.log(this);
             }

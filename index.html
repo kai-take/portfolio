@@ -132,23 +132,25 @@
 
             <!-- Profile -->
             <section id="profile" class="profile">
-                <h2 class="heading fadeIn">
-                    <span class="heading_text">PROFILE</span>
-                    <span>プロフィール</span>
+                <h2 class="heading">
+                    <span class="heading_text fadeIn">PROFILE</span>
+                    <span class="fadeIn">プロフィール</span>
                 </h2>
 
                 <div class="inner">
                     <div class="wrapper">
-                        <p class="title">竹内 快斗(Takeuchi Kaito)</p>
-
-                        <p class="text">
-                            都内在住の大学二年生(20)です！
-                            2019年3月、プログラミング及びweb制作の世界に触れ、
-                            2019年の10月から、本格的にweb制作の学習を始めました。
-                            MENTAを利用しメンターさんの下で主な学習を進め、HTML/CSS/jqueryを使ったコーディングをして来ました。
-                        </p>
-
-                        <p class="text"><a href="">and more...</a></p>
+                        <div class="square">
+                            <div class="content">
+                                <span></span>
+                                <span></span>
+                                <span></span>
+                                <p class="title">竹内 快斗(Takeuchi Kaito)</p>
+                                <p class="text">
+                                    都内在住の大学二年生(20)です！<br>2019年3月、プログラミング及びweb制作の世界に触れ、2019年の10月から、本格的にweb制作の学習を始めました。MENTAを利用しメンターさんの下で主な学習を進め、HTML/CSS/jqueryを使ったコーディングをして来ました。
+                                </p>
+                                <p class="text link"><a href="">and more...</a></p>
+                            </div>
+                        </div>
                     </div><!-- /wrapper -->
                 </div><!-- /inner -->
             </section>
@@ -165,8 +167,6 @@
                 <div class="wrapper">
 
                     <div class="card">
-                        <p class="siteName purple">cosme</p>
-
                         <div class="card_content">
                             <div class="modal-open hover-darken" data-target="#modal01">
                                 <!-- data-targetの値と表示するモーダルのID名を紐付け、#を忘れない-->
@@ -178,8 +178,6 @@
                     </div>
 
                     <div class="card">
-                        <p class="siteName red">144lab</p>
-
                         <div class="card_content">
                             <div class="modal-open hover-darken" data-target="#modal02">
                                 <span class="card_imgWrapper">
@@ -190,8 +188,6 @@
                     </div>
 
                     <div class="card">
-                        <p class="siteName white">portfolio</p>
-
                         <div class="card_content">
                             <div class="modal-open hover-darken" data-target="#modal03">
                                 <span class="card_imgWrapper">
@@ -211,10 +207,13 @@
 
                         <div class="modal_texts">
                             <p class="modal_text">デザインカンプからコーディングしました。</p>
-                            <p class="modal_text dummy"><a href="https://kai-take.github.io/cosme/" target="_blank"
-                                    rel="noopener noreferrer">view site</a></p>
-                            <p class="modal_text"><a href="https://github.com/kai-take/cosme/" target="_blank"
-                                    rel="noopener noreferrer">github</a></p>
+                            <a class="corner-button" href="https://kai-take.github.io/cosme/" target="_blank">
+                                <span>view site</span>
+                            </a>
+
+                            <a class="corner-button" href="https://github.com/kai-take/cosme/" target="_blank">
+                                <span>github</span>
+                            </a>
                         </div>
                     </div>
                 </div>
@@ -232,11 +231,12 @@
 
                         <div class="modal_texts">
                             <p class="modal_text">cosme同様、デザインカンプからコーディングしました。</p>
-                            <!-- <p class="modal_text dummy"><a href="https://kai-take.github.io/144lab/" target="_blank" rel="noopener noreferrer">view site</a></p> -->
-                            <!-- <p class="modal_text"><a href="https://github.com/kai-take/144lab/" target="_blank" rel="noopener noreferrer">github</a></p> -->
-                            <a class="modal_btn">view site</a>
+                            
+                            <a class="corner-button" href="https://kai-take.github.io/144lab/" target="_blank">
+                                <span>view site</span>
+                            </a>
 
-                            <a class="corner-button">
+                            <a class="corner-button" href="https://github.com/kai-take/144lab/" target="_blank">
                                 <span>github</span>
                             </a>
                         </div>
@@ -253,8 +253,11 @@
                             <p class="modal_text">
                                 ご覧いただいているサイトになります。デザインのコンセプトとして、まだweb製作者として何者でも無い自分を白とし、これからそこに色を加えていく意味での絵具をイメージしました。<br>絵具の画像を際立たせる為、全体の色は白を使い、文字は黒にしました。
                             </p>
-                            <p class="modal_text"><a href="https://github.com/kai-take/portfolio" target="_blank"
-                                    rel="noopener noreferrer">github</a></p>
+
+                            <a class="corner-button" href="https://github.com/kai-take/144lab/" target="_blank">
+                                <span>github</span>
+                            </a>
+
                         </div>
                     </div>
                 </div><!-- /wrapper-->
@@ -270,6 +273,9 @@
 
                 <div class="inner">
                     <div class="wrapper">
+
+
+
                         <form action="#" method="POST">
                             <label class="formGroup">
                                 <span>お名前</span>
@@ -293,6 +299,9 @@
 
                             <button class="btn">送信</button>
                         </form>
+
+
+
                     </div>
                 </div><!-- /inner -->
             </section>
@@ -306,7 +315,7 @@
             <p class="copyright"><small>COPYRIGHT©︎ My Portfolio ALL RIGHTS RESERVED.</small></p>
         </footer>
         <!-- /フッター -->
-        
+
     </div>
     <!-- /ラッパー -->
 </body>
