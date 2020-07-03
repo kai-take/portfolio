@@ -31,13 +31,6 @@ body {
     opacity: 1;
 }
 
-@media (min-width:1920px) {
-    #wrapper {
-        /* padding-top: ;
-        margin-top: ; */
-    }
-}
-
 /*---------------------------------
 
 共通パーツ
@@ -59,11 +52,11 @@ section {
 
 /* 見出し */
 .heading {  
+    position: relative;
     width: 20%;
     min-width: 250px;
     margin: 0 auto 4.166vw; 
     text-align: center;
-    position: relative;
     overflow: hidden;
     transition: 1s;
     transition-delay: 0.2s;
@@ -71,16 +64,16 @@ section {
 }
 
 .heading::before{
+    content: "";
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
+    transform: translateX(-150%);
     transform-origin: left;
     transition: 2s;
     transition-delay: 0s;
-    content: "";
-    transform: translateX(-150%);
 }
 
 .heading.animated {
@@ -88,7 +81,7 @@ section {
 }
 
 .heading.animated::before {
-    transform: translateX(100%);
+    transform: translateX(106%);
 }
 
 .heading > .heading_text {
@@ -163,8 +156,8 @@ section {
 .logo_wrapper {
     display: flex;
     flex-basis: 23%; /* widthと同義 */
-    max-width: 450px; /* 2500pxまで対応 */
-    min-width: 400px;
+    max-width: 200px; /* 2500pxまで対応 */
+    min-width: 200px;
     padding-left: 10px;
     align-items: center;
 }
@@ -197,7 +190,7 @@ section {
     letter-spacing: 0.05em;
 }
 
-/* ナビゲーション  */
+/* ナビゲーション */
 .header_nav {
     display: flex;
     margin: 1.5em 1em 1.5em 0;
@@ -235,6 +228,7 @@ section {
     width: 100%;
 }
 
+/* メインビジュアル */
 .mainVisual {
     position: relative;
 }
@@ -244,24 +238,59 @@ section {
     width: 100%;
 }
 
+.strokeText{
+    position: absolute;
+    bottom: 2em;
+    left: 0;
+    width: 10%;
+}
 
+.st0 {
+    fill: black;
+    stroke: black;
+    stroke-dasharray: 150;
+    stroke-dashoffset: 2000;
+    animation: write 3s cubic-bezier(0,.23,1,.1);
+    opacity: 1;
+}
+
+@keyframes write {
+    0% {
+        opacity: 0;
+        fill: none;
+        stroke-dashoffset: 150;
+    }
+
+    30% {
+        opacity: 1;
+        fill: none;
+        stroke-dashoffset: 150;
+    }
+
+    90%{
+        fill: rgba(240, 240, 240,0);
+    }
+
+    100% {
+        opacity: 1;
+        fill: black;
+        stroke-dashoffset: 0;
+    }
+}
+
+@media (max-width:720px) {
+    .strokeText{
+        bottom: 1em;
+        left: 0;
+        width: 10%;
+    }
+}
 
 /* sp版ナビゲーション  */
 .mobile-menu_btn {
     display: none;
     position: relative;
 }
-
-/* .mobile-menu_btn::after {
-    content: 'MENU';
-    position: absolute;
-    top: 34px;
-    left: 0;
-    width: 100%;
-    color: #333;
-    font-size: 0.8rem;
-    text-align: center;
-} */
 
 .mobile-menu_btn > span {
     display: block;
@@ -276,11 +305,6 @@ section {
     margin-top: 10px;
 }
 
-@media (min-width:1920px) {
-    .header {
-        /* height: ; */
-    }
-}
 @media (min-width:1024px) {
     .header {
         height: 68px;
@@ -296,14 +320,6 @@ section {
         font-size: 3rem;
     }
 
-    .logoTitles {
-         
-    }
-
-    .logoTitle1 {
-         
-    }
-
     .logoTitles2 {
         font-size: 2rem;
     }
@@ -313,10 +329,6 @@ section {
 表示崩れ防止 *ロゴ部分
 ———————————*/
 @media (max-width:800px) {
-    .logo_wrapper {
-        min-width: 280px;
-    }
-    
     .logoTitle1 {
         font-size: 1.2rem;
     }
@@ -351,7 +363,6 @@ sp
 @media (max-width:560px) {
     .logo_wrapper {
         flex-basis: 70%;
-        min-width: 286px;
     }
 
     .logoTitle1 {
@@ -360,7 +371,7 @@ sp
     
     .logoTitles2 {
         font-size: calc(2rem + ((1vw - 3.2px) * 3.3333)); /* 20~28px */
-        line-height: 1.5;
+        line-height: 1;
     }
     
     .header_nav {
@@ -469,7 +480,6 @@ sp
 .profile > .heading > span {
     color: #333;
     font-weight: 500;
-
 }
 
 .profile > .inner > .wrapper {
@@ -481,12 +491,10 @@ sp
 }
 
 .square {
-    background: white;
+    position: relative;
     width: 400px;
     height: 400px;
-    /* width: 75%;
-    height: 67%; */
-    position: relative;
+    background: white;
 }
 
 .square .content {
@@ -508,7 +516,6 @@ sp
     animation: circle 6s infinite;
 }
 
-
 .square .content span:nth-child(2) {
     animation: circle 4s infinite;
 }
@@ -527,78 +534,27 @@ sp
     }
 }
 
-.square:hover span:nth-child(1){
-    border: none;
-    background: rgba(12, 157, 176, 0.8);
-}
-
-.square:hover span:nth-child(2){
-    border: none;
-    background: rgba(12, 157, 176, 0.8);
-}
-
-.square:hover span:nth-child(3){
+.active-hover .square:hover span {
     border: none;
     background: rgba(12, 157, 176, 0.8);
 }
 
 .square .content .title, .square .content .text {
-    color: black;
-    text-align: center;
     position: relative;
     z-index: 5;
+    color: black;
 }
 
 .square .content .title {
     font-size: 16px;
     padding-bottom: 20px;
+    text-align: center;
 }
 
 .square .content .text {
     font-size: 14px;
     padding-bottom: 10px;
-}
-
-.square .content .link{
-
-}
-
-
-/* .profile > .inner > .wrapper > .title {
-    position: relative;
-    margin: 0 0 1.57em 0;
-    padding-top: 2.9em;
-    color: #333;
-    font-size: calc(1.4rem + ((1vw - 7.2px) * 1.1667)); 
-    14~28px
-    font-weight: 700;
-    white-space: nowrap;
-} */
-
-/* .profile > .inner > .wrapper > .title::after {
-    content: "\f304";
-    position: absolute;
-    top: 2em;
-    left: 9em;
-    color: #333;
-    font-family: "Font Awesome 5 Free";
-    font-size: calc(2rem + ((1vw - 7.2px) * 1.6667)); 
-    20~40px
-    font-weight: 900;
-} */
-
-/* 
-.profile > .inner > .wrapper > .text {
-    color: #333;
-    font-size: calc(1rem + ((1vw - 7.2px) * 0.8333)); 
-    10~20px
-    font-weight: 400;
-    line-height: 2;
-    text-align: justify; 改行位置を揃える.
-} */
-
-.profile > .inner > .wrapper > .text:not(:last-child) {
-    /* margin-bottom: 2em; */
+    text-align: left;
 }
 
 /*
@@ -617,8 +573,6 @@ sp
 /*
 表示崩れ防止 *1100~720px
 ———————————*/
-
-
 @media (max-width:1100px) {
     .profile > .inner {
         margin: 0  auto 0 10%;
@@ -644,13 +598,6 @@ sp
     }
 }
 
-@media (max-width:1000px) {
-    .profile > .inner > .wrapper {
-        /* padding-bottom: 4%;  */
-        /* プロフィール文のズレを解消 */
-    }
-}
-
 /*
 sp
 ———————————*/
@@ -659,7 +606,6 @@ sp
         width: 90%;
         margin: 0 auto;
     }
-    
     
     .profile > .inner > .wrapper {
         height: auto; 
@@ -727,6 +673,8 @@ sp
 
 ---------------------------------*/
 .works {
+    position: relative; /* z-indexを指定しないと、下にあるcontactの中のpostionを指定した要素が上に来てしまうからここで指定 */
+    z-index: 2;
     background: #222423;
 }
 
@@ -757,48 +705,18 @@ sp
     position: relative;
 }
 
-.card .siteName {
-    text-align: center;
-    position: absolute;
-    bottom: -0.3em;
-    left: 50%;
-    z-index: 1;
-    line-height: 1;
-    font-size: 50px;
-    transform: translateX(-50%) scale(0); 
-    opacity: 0;
-    /* display: none; */
-    visibility: hidden;
-    transition: transform 0.7s;
-}
-
-.purple {
-    color: purple;
-}
-
-.red {
-    color: red;
-}
-
-.white {
-    color: white;
-}
-
-.card:hover .siteName {
+.active-hover .card:hover .siteName {
     opacity: 1;
-    /* display: block; */
     visibility: visible;
     transform: translateX(-50%) scale(1.2); /* font-sizeで制御するとカクツキがでる */
-
 }
 
-
 .card_content {
-    width: 100%;
-    overflow: hidden;
-    border: solid 1px #333;
     position: relative; /* .hover-darken用 */
     z-index: 0;
+    width: 100%;
+    border: solid 1px #333;
+    overflow: hidden;
     cursor: pointer;
 }
 
@@ -834,7 +752,7 @@ sp
     transition: transform 0.3s ease;
 }
 
-.card_content:hover .card_img {
+.active-hover .card_content:hover .card_img {
     transform: scale(1.05) ;
 }
 
@@ -864,17 +782,17 @@ sp
     left:50%;
     transform:translate(-50%,-50%);
     z-index: 2;
-    width: 60%;
+    width: 55%;
     margin: 0 auto;
     padding: 5em;
     background: #ffffff;
 }
 
 .close-btn {
-    height: 100%;
     position: absolute;
     top: 3em;
     right: 1em;
+    cursor: pointer;
 }
 
 .close-btn > span {
@@ -883,7 +801,6 @@ sp
     height: 2px;
     margin-bottom: 7px;
     display: block;
-    cursor: pointer;
 }
 
 .close-btn > span:nth-child(2) {
@@ -924,18 +841,17 @@ sp
     margin-top: 10px;
 }
 
-
 /* モーダルボタン */
 .corner-button {
-    background: transparent;
-    border: 3px solid currentColor;
+    display: inline-block;
+    position: relative;
+    margin: 10px;
     padding: 5px;
+    border: 3px solid currentColor;
+    background: transparent;
     font-size: 1rem;
     color: black; /* 文字の色 */
-    position: relative;
     transition: color 0.3s;
-    margin: 10px;
-    display: inline-block;
 }
 
 .corner-button span {
@@ -947,50 +863,37 @@ sp
 .corner-button::before, .corner-button::after {
     content: '';
     position: absolute;
-    background: white;
     z-index: 1;
+    background: white;
     transition: width 0.3s, height 0.3s;
 }
 
 .corner-button::before {
-    width: 17px;
-    height: 143%;
     top: -0.6rem; /* 枠線分ずらしている */
     left: 50%;
     transform: translateX(-50%);
-}
-.corner-button::after {
-    height: 11px;
-    width: 127%;
-    left: -0.7rem; 
-    top: 50%;
-    transform: translateY(-50%);
+    width: 17px;
+    height: 143%;
 }
 
-.corner-button:hover {
+.corner-button::after {
+    top: 50%;
+    left: -0.7rem; 
+    transform: translateY(-50%);
+    height: 11px;
+    width: 127%;
+}
+
+.active-hover .corner-button:hover {
     color: purple;
 }
 
-.corner-button:hover::before {
+.active-hover .corner-button:hover::before {
     width: 0; /* 線が繋がる */
 }
-.corner-button:hover::after {
+
+.active-hover .corner-button:hover::after {
     height: 0;
-}
-
-.modal_text > a {
-    color: #617c8c;
-}
-
-.active-hover .modal_text > a:hover {
-    text-decoration: underline;
-    color: #333;
-}
-
-.dummy::after {
-    content: "/";
-    margin: 0 5px;
-    color: #617c8c;
 }
 
 /*
@@ -1022,7 +925,7 @@ sp
     }
 
     .modal_content {
-        top: 40%;
+        top: 45%;
         width: 95%;
         padding: 30px;
     }
@@ -1037,6 +940,14 @@ sp
 
     .modal_text {
         font-size: 15px;
+    }
+
+    .corner-button {
+        padding: 3px;
+    }
+
+    .corner-button::after {
+        width: 130%;
     }
 }
 
@@ -1076,9 +987,9 @@ sp
 
 .formGroup > span {
     display: block;
-    color: #333;
     font-size: 1.6rem;
     font-weight: 700;
+    color: #333;
     text-align: center;
 }
 
@@ -1105,17 +1016,41 @@ sp
     line-height: 1;
 }
 
-.btn {
+.contact_btn {
     display: block;
+    position: relative;
+    z-index: 1;
     margin: 0 auto;
     padding: 0.5em 4em;
     border: 1px solid #537FBD;
     box-shadow: 2px 2px 4px -2px rgba(128, 128, 128, 1) inset, -2px -2px 4px -2px gray inset;
     background: #ffffff;
-    color: #333;
     font-size: 2rem;
     font-weight: 700;
     letter-spacing: 0.2em;
+    color: #333;
+}
+
+.active-hover .contact_btn:hover {
+    color: white;
+}
+
+.contact_btn::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    width: 100%;
+    height: 100%;
+    background: #c70024;
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: 0.5s;
+}
+
+.active-hover .contact_btn:hover::before {
+    transform: scaleX(1);
 }
 
 /*
@@ -1155,10 +1090,10 @@ sp
 
 ---------------------------------*/
 .footer {
+    position: relative;
     width: 100%;
     padding: 79px 0;
     background: #222423;
-    position: relative;
 }
 
 .copyright {
@@ -1182,98 +1117,3 @@ sp
     }
 }
 
-
-
-
-
-
-
-.modal_btn {
-    font-size: 1.6rem;
-    display: inline-block;
-    padding: 0.5rem 1rem;
-    cursor: pointer;
-    margin-top: 10px;
-    background: gray;
-    border-bottom: 5px solid black;
-}
-
-.modal_btn:hover {
-    border-bottom: 2px solid black;
-} 
-
-.modal_btn + .modal_btn {
-    margin-left: 10px;
-}
-
-
-.svg {
-    position: absolute;
-    bottom: 5em;
-    left: 20px;
-}
-
-
-.svg {
-    width: 20%;
-    opacity: 0;
-    /* display: none; */
-    visibility: hidden;
-    transition: all 2s;
-}
-
-.storkeAnimated {
-    opacity: 1;
-    /* display: block; */
-    visibility: visible;
-}
-
-.strokeText{
-    /* background: black; */ 
-    position: absolute;
-    bottom: 2em;
-    left: 0;
-    width: 10%;
-}
-
-.st0 {
-    fill: black;
-    stroke: black;
-    stroke-dasharray: 150;
-    stroke-dashoffset: 2000;
-    animation: write 3s cubic-bezier(0,.23,1,.1);
-    opacity: 1;
-}
-
-@keyframes write {
-    0% {
-        opacity: 0;
-        fill: none;
-        stroke-dashoffset: 150;
-    }
-
-    30% {
-        opacity: 1;
-        fill: none;
-        stroke-dashoffset: 150;
-    }
-
-    90%{
-        fill: rgba(240, 240, 240,0);
-    }
-
-    100% {
-        opacity: 1;
-        fill: black;
-        stroke-dashoffset: 0;
-    }
-}
-
-
-@media (max-width:720px) {
-    .strokeText{
-        bottom: 1em;
-        left: 0;
-        width: 10%;
-    }
-}
