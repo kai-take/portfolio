@@ -676,8 +676,8 @@ sp
 }
 
 @media (max-width:560px) {
-    .profile > .inner > .wrapper {
-        padding: 2em;
+    .profile > .inner {
+        min-width: auto;
     }
 
     .square .content .title {
@@ -813,17 +813,11 @@ sp
     left: 50%;
     transform:translate(-50%,50%);
     z-index: 2;
-    width: 670px;
-    height: 520px;
+    width: 60%;
     margin: 0 auto;
     padding: 5em;
     background: #ffffff;
 }
-
-.modal_content3 {
-    height: 570px;
-}
-
 
 .close-btn {
     position: absolute;
@@ -938,16 +932,6 @@ sp
 }
 
 /*
-表示崩れ防止 *モーダル
-———————————*/
-@media (min-width:1920px) {
-    .modal_content {
-        width: 1000px;
-        height: 725px;
-    }
-}
-
-/*
 sp
 ———————————*/
 @media (max-width:720px) {
@@ -978,9 +962,6 @@ sp
     .modal_content {
         bottom: 45%;
         width: 90%;
-        min-width: 300px;
-        height: 300px;
-        padding: 35px;
     }
 
     .modal_text {
