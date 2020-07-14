@@ -62,7 +62,6 @@ $(function () { // 通常の記述はここに書いていく
     //     });
     //   }
 
-
     /*
     モーダル 
     ———————————*/
@@ -114,24 +113,22 @@ $(window).on('load scroll', function () { // ページの読み込み時かつ�
     });
 });
 
-$(window).on('load scroll', function () { // ページの読み込み時かつスクロール時
-    var stroke = $('.stroke');
-    console.log(stroke);
-    var storkeAnimated = 'storkeAnimated';
+// $(window).on('load scroll', function () { // ページの読み込み時かつスクロール時
+//     var stroke = $('.stroke');
+//     console.log(stroke);
+//     var storkeAnimated = 'storkeAnimated';
 
-    stroke.each(function () {
-        var boxOffset = $(this).offset().top;
-        var scrollPos = $(window).scrollTop();
-        var wh = $(window).height();
+//     stroke.each(function () {
+//         var boxOffset = $(this).offset().top;
+//         var scrollPos = $(window).scrollTop();
+//         var wh = $(window).height();
 
-
-
-        //画面内のどの位置で処理を実行するかで「100」の値を変更
-        if (scrollPos > boxOffset - wh + 100) {
-            $(this).addClass(storkeAnimated);
-        }
-    });
-});
+//         //画面内のどの位置で処理を実行するかで「100」の値を変更
+//         if (scrollPos > boxOffset - wh + 100) {
+//             $(this).addClass(storkeAnimated);
+//         }
+//     });
+// });
 
 /*
 hoverの切り替え 
@@ -144,8 +141,9 @@ $(window).on('load resize orientationchange', function () {
     }
 });
 
-//     $(function(){
-//         const target = Array.from(document.querySelectorAll('#mask2 path'));
-// const phw = new PlayHandwriting(target, speed, interval); // 第一引数に要素（path要素を指定）、第二引数にスピード（数が小さい方が早い）、第三引数にpath間のインターバル（ミリ秒）
-// phw.playAnimation();
-// });
+/*
+ローディングアニメーション
+———————————*/
+$(window).on('load', function() {
+    $('.loading').delay(2000).fadeOut("1000");
+});
