@@ -68,10 +68,8 @@ $(function () { // 通常の記述はここに書いていく
     $('.modal-open').each(function () { // 繰り返し処理
         $(this).on('click', function () {
             var target = $(this).data('target'); // htmlで設定したdata-target(modal01や02)を取得
-            console.log(target);
 
             var modal = $(target); // targetで取得したID名が付与されてるhtml要素をオブジェクト化して変数に格納
-            console.log(modal);
 
             $('.header').css('display', 'none');
             $('.square .content .title, .square .content .text').css('z-index', '0');
@@ -94,7 +92,6 @@ $(window).on('load scroll', function () { // ページの読み込み時かつ�
     var animated = 'animated';
 
     var stroke = $('.stroke');
-    console.log(stroke);
     var storkeAnimated = 'storkeAnimated';
 
     box.each(function () {
