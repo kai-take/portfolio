@@ -99,8 +99,6 @@ $(window).on('load scroll', function () { // ページの読み込み時かつ�
         var scrollPos = $(window).scrollTop(); // スクロール量
         var wh = $(window).height(); // ページ全体の高さ
 
-
-
         //画面内のどの位置で処理を実行するかで「100」の値を変更
         if (scrollPos > boxOffset - wh + 100) {
             $(this).addClass(animated);
@@ -142,5 +140,6 @@ $(window).on('load resize orientationchange', function () {
 ローディングアニメーション
 ———————————*/
 $(window).on('load', function() {
-    $('.loading').delay(2000).fadeOut("1000");
+    $('.loading').delay(2000).fadeOut(1000); /* ページの読み込み完了の2秒後に1秒かけて消える */
+    $('body').addClass('load');
 });

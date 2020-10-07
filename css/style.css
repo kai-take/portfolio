@@ -22,7 +22,6 @@
     visibility: visible;
     opacity: 1;
 }
-
 /*---------------------------------
 
 共通パーツ
@@ -186,27 +185,33 @@ section {
 /* メインビジュアル */
 .mainVisual {
     position: relative;
+    background: url(../img/main2.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    width: 100%;
+    height: calc(100vh - 88px);
 }
 .mainVisual_img {
     display: block;
-    width: 100%;
 }
+
+/* 文字アニメーション */
 .strokeText {
     position: absolute;
-    bottom: 4em;
+    bottom: 0;
     left: 0;
-    width: 10%;
+    width: 8%;
 }
-.st0 {
+.load .st0 {
     fill: #333;
     stroke: #333;
     stroke-dasharray: 150;
     stroke-dashoffset: 2000;
     animation: write 3s cubic-bezier(0,.23,1,.1);
-    animation-delay: 1.8s;
+    animation-delay: 0.5s; /* アニメーションが始まる時間 */ 
     opacity: 1;
 }
-
 @keyframes write {
     0% {
         opacity: 0;
@@ -227,7 +232,6 @@ section {
         stroke-dashoffset: 0;
     }
 }
-
 @media (max-width:720px) {
     .strokeText {
         bottom: 1em;
@@ -235,7 +239,6 @@ section {
         width: 20%;
     }
 }
-
 /* sp版ナビゲーション  */
 .mobile-menu_btn {
     display: none;
@@ -252,8 +255,6 @@ section {
 .mobile-menu_btn > span + span {
     margin-top: 10px;
 }
-
-
 /* 
 表示崩れ防止 * ヘッダー
 ———————————*/
@@ -263,18 +264,18 @@ section {
     }
     .mainVisual {
         margin-top: 68px;
+        height: calc(100vh - 68px);
     } 
 }
-
 @media (min-width:1920px) {
     .header {
         height: 88px;
+        height: calc(100vh - 88px);
     }
     .mainVisual {
         margin-top: 88px;
     } 
 }
-
 @media (max-width:1024px) {
     .header {
         height: 50px;
@@ -289,7 +290,6 @@ section {
         margin-top: 50px;
     }
 }
-
 /* 
 表示崩れ防止 * ロゴ部分
 ———————————*/
@@ -304,7 +304,6 @@ section {
         font-size: 3.5rem;
     }
 }    
-
 /* 
 表示崩れ防止 * ナビゲーション
 ———————————*/
@@ -319,7 +318,6 @@ section {
         padding: 17px 1em; /* 左右の間隔の縮小 */
     }
 }    
-
 /*
 sp
 ———————————*/
@@ -395,7 +393,6 @@ sp
         transform: translateY(-13px) rotate(-135deg);
     }
 }    
-
 /* 
 表示崩れ防止 *ハンバーガーメニュー
 ———————————*/
@@ -405,7 +402,6 @@ sp
         min-width: 30px;
     }
 } 
-
 /*---------------------------------
 
  プロフィール
@@ -448,8 +444,6 @@ sp
     width: 55%;
 }
 .content > .title, .content > .text {
-    position: relative;
-    z-index: 5;
     color: #333;
 }
 .content > .title {
@@ -538,6 +532,9 @@ sp
     width: 30%;
     position: relative;
 }
+.card:nth-child(n + 4) { /* 4番目以降のクラス */
+    margin-top: 50px;
+}
 .active-hover .card:hover .siteName {
     opacity: 1;
     visibility: visible;
@@ -588,7 +585,7 @@ sp
     top: 0;
     width: 100%;
     height: 100vh;
-    padding-top: 100px;
+    padding-top: 80px;
     overflow-y: scroll;
 }
 .modal > .overlay {
@@ -703,9 +700,8 @@ sp
 .active-hover .corner-button:hover::after {
     height: 0;
 }
-
 /*
-sp
+tablet
 ———————————*/
 @media (max-width:720px) {
     .works > .wrapper {
@@ -728,7 +724,6 @@ sp
         height: auto;
     }
     .modal_content {
-        bottom: 45%;
         width: 90%;
     }
     .modal_text {
@@ -747,7 +742,14 @@ sp
         width: 130%;
     }
 }
-
+/*
+sp
+———————————*/
+@media (max-width:560px) {
+    .modal_content {
+        padding: 3.3em;
+    }
+}
 /*---------------------------------
 
  コンタクト
@@ -893,7 +895,6 @@ sp
         font-size: 1rem;
     }
 }
-
 /* ローディングアニメーション */
 .loading {
     content: "";
@@ -914,7 +915,6 @@ sp
     font-size: 40px;
     animation: blink 1s linear infinite;
 }
-
 @keyframes blink {
     0% {
         opacity: 0;
@@ -926,7 +926,6 @@ sp
         opacity: 1;
     }
 }
-
 @media (max-width: 720px) {
     .blinkText {
         font-size: 30px;
