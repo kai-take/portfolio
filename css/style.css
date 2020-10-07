@@ -270,10 +270,10 @@ section {
 @media (min-width:1920px) {
     .header {
         height: 88px;
-        height: calc(100vh - 88px);
     }
     .mainVisual {
         margin-top: 88px;
+        height: calc(100vh - 88px);
     } 
 }
 @media (max-width:1024px) {
@@ -523,14 +523,19 @@ sp
 .works > .wrapper {
     display: flex;
     flex-flow: wrap;
-    justify-content: space-between;
-    align-content: space-around;
+    justify-content: space-around;
     width: 100%;
     padding: 0 30px;
 }
 .card {
     width: 30%;
     position: relative;
+}
+.card:not(:first-child) {
+    margin-left: 20px;
+}
+.card:nth-child(3n + 1) {
+    margin-left: 0;
 }
 .card:nth-child(n + 4) { /* 4番目以降のクラス */
     margin-top: 50px;
