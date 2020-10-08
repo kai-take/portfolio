@@ -185,15 +185,11 @@ section {
 /* メインビジュアル */
 .mainVisual {
     position: relative;
-    background: url(../img/main2.jpg);
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center;
-    width: 100%;
-    height: calc(100vh - 88px);
 }
 .mainVisual_img {
     display: block;
+    width: 100%;
+    min-height: 190px;
 }
 
 /* 文字アニメーション */
@@ -243,6 +239,7 @@ section {
 .mobile-menu_btn {
     display: none;
     position: relative;
+    cursor: pointer;
 }
 .mobile-menu_btn > span {
     display: block;
@@ -264,7 +261,6 @@ section {
     }
     .mainVisual {
         margin-top: 68px;
-        height: calc(100vh - 68px);
     } 
 }
 @media (min-width:1920px) {
@@ -273,7 +269,6 @@ section {
     }
     .mainVisual {
         margin-top: 88px;
-        height: calc(100vh - 88px);
     } 
 }
 @media (max-width:1024px) {
@@ -430,6 +425,8 @@ sp
     display: flex;
     justify-content: space-between;
     align-items: center;
+    max-width: 1550px;
+    margin: auto;
 }
 .profile > .inner > .wrapper > .myImg {
     display: block;
@@ -453,6 +450,17 @@ sp
 .content > .text {
     font-size: 1.6rem;
     padding-bottom: 10px;
+}
+/*
+tablet
+———————————*/
+@media (min-width:1920px) {
+    .content > .title {
+        font-size: 3rem;
+    }
+    .content > .text {
+        font-size: 2.6rem;
+    }
 }
 /*
 tablet
@@ -531,9 +539,6 @@ sp
     width: 30%;
     position: relative;
 }
-.card:not(:first-child) {
-    margin-left: 20px;
-}
 .card:nth-child(3n + 1) {
     margin-left: 0;
 }
@@ -608,7 +613,7 @@ sp
     position: relative;
     z-index: 2;
     width: 60%;
-    margin: 0 auto;
+    margin: 0 auto 40px; 
     padding: 5em;
     background: #ffffff;
 }
