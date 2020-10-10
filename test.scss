@@ -235,10 +235,7 @@ section {
     min-width: 34px;
     height: 3px;
     background: #333;
-    -webkit-transition: -webkit-transform 0.7s;
-    transition: -webkit-transform 0.7s;
     transition: transform 0.7s;
-    transition: transform 0.7s, -webkit-transform 0.7s;
 }
 .mobile-menu_btn > span + span {
     margin-top: 10px;
@@ -366,25 +363,15 @@ sp
         }
     }
     .active .mobile-menu_btn > span:nth-child(1) {
-        -webkit-animation-name: fadeIn;
-        animation-name: fadeIn;
-    /* .activeが付与されたらアニメーション開始 */
-    -webkit-animation-duration: 0.5s;
-            animation-duration: 0.5s;
-    -webkit-animation-fill-mode: forwards;
-            animation-fill-mode: forwards;
-/* opacity:1;を維持 */
+        transition-delay: 70ms;
+        transform: translateY(13px) rotate(135deg); /* heightとmargin-bottomを足した値 */
     }
     .active .mobile-menu_btn > span:nth-child(2) {
-        -webkit-transition-delay: 0s;
         transition-delay: 0s;
-        -webkit-transform: translateX(-18px) scaleX(0);
-                transform: translateX(-18px) scaleX(0);
+        transform: translateX(-18px) scaleX(0); /* 横にずれて消える */
     }
     .active .mobile-menu_btn > span:nth-child(3) {
-        -webkit-transition-delay: 140ms;
         transition-delay: 140ms;
-        -webkit-transform: translateY(-13px) rotate(-135deg);
         transform: translateY(-13px) rotate(-135deg);
     }
 }    
@@ -721,13 +708,8 @@ tablet
 ———————————*/
 @media (max-width:720px) {
     .works > .wrapper {
-        -webkit-box-orient: vertical;
-        -webkit-box-direction: normal;
-            -ms-flex-direction: column;
-                flex-direction: column;
-        -webkit-box-align: center;
-            -ms-flex-align: center;
-                align-items: center;
+        flex-direction: column;
+        align-items: center; /* 左右中央よせ */
         padding: 0;
     }
     .card {
