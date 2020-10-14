@@ -76,30 +76,6 @@ $(function () { // 通常の記述はここに書いていく
 });
 
 /*
-フェードイン  * animatedクラスを任意の位置にスクロールしたら付与する記述
-———————————*/
-$(window).on('load scroll', function () { // ページの読み込み時かつスクロール時
-    var box = $('.fadeIn'); // fadeInクラスがついた要素を取得し、オブジェクト生成
-    var animated = 'animated';
-
-    var stroke = $('.stroke');
-    var storkeAnimated = 'storkeAnimated';
-
-    box.each(function () {
-        var boxOffset = $(this).offset().top; // 指定した要素の位置の座標
-        var scrollPos = $(window).scrollTop(); // スクロール量
-        var wh = $(window).height(); // ページ全体の高さ
-
-        //画面内のどの位置で処理を実行するかで「100」の値を変更
-        if (scrollPos > boxOffset - wh + 100) {
-            $(this).addClass(animated);
-            // $(this).css('display', 'none').fadeIn(1000);
-            // console.log(this);
-        }
-    });
-});
-
-/*
 hoverの切り替え 
 ———————————*/
 $(window).on('load resize orientationchange', function () {

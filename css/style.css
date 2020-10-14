@@ -1,7 +1,9 @@
 @charset "UTF-8";
 @import url('https://fonts.googleapis.com/css?family=Noto+Sans+JP:400,500,700,900&display=swap');
 
-/* 初期設定 */
+/*---------------------------------
+初期設定
+---------------------------------*/
 #wrapper {
     position: relative;
     width: 100%;
@@ -35,10 +37,6 @@ section {
     min-width: 250px;
     margin: 0 auto 4.166vw; 
     text-align: center;
-    overflow: hidden;
-    transition: transform 1s;
-    transition-delay: 0.2s;
-    transform: scaleX(0);
 }
 .heading::before{
     content: "";
@@ -47,10 +45,6 @@ section {
     left: 0;
     width: 100%;
     height: 100%;
-    transform: translateX(-150%);
-    transform-origin: left;
-    transition: transform 2s;
-    transition-delay: 0s;
 }
 .heading > .heading_text {
     font-size: calc(2.5rem + ((1vw - 8px) * 1.3393)); /* 20~40px */
@@ -59,12 +53,6 @@ section {
 .heading > span {
     display: block; /* 改行のため */
     font-size: 1.2rem;
-}
-.heading.animated {
-    transform: scaleX(1);
-}
-.heading.animated::before {
-    transform: translateX(106%);
 }
 /*
 表示崩れ防止 
@@ -187,7 +175,7 @@ section {
     left: 0;
     width: 8%;
 }
-.load .st0 {
+.load .st0 { /* jQueryでloadクラスを付与 */
     fill: #333;
     stroke: #333;
     stroke-dasharray: 150;
@@ -221,6 +209,7 @@ section {
         bottom: 1em;
         left: 0;
         width: 20%;
+        max-width: 70px;
     }
 }
 /* sp版ナビゲーション  */
@@ -351,18 +340,15 @@ sp
     .mobile-menu_btn {
         display: block; /* 表示 */
     }
-
-    /* jsでactiveクラスをbodyに付与、その子要素として以下を指定していく */
+    /* jsでactiveクラスをそれぞれの要素に付与 */
     .active.header_nav {
         display: block;
         -webkit-animation-name: fadeIn;
-        animation-name: fadeIn;
-        /* .activeが付与されたらアニメーション開始 */
+        animation-name: fadeIn; 
         -webkit-animation-duration: 0.5s;
                 animation-duration: 0.5s;
         -webkit-animation-fill-mode: forwards;
-                animation-fill-mode: forwards;
-        /* opacity:1;を維持 */
+                animation-fill-mode: forwards;/* opacity:1;を維持 */
     }
     @keyframes fadeIn {
         0% {
