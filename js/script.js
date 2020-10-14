@@ -46,21 +46,12 @@ $(function () { // 通常の記述はここに書いていく
     ハンバーガーメニュー 
     ———————————*/
     $('.mobile-menu_btn,.nav-link,.cover').on('click', function () {
-        $('body').toggleClass('active');
+        if($('.mobile-menu_btn, .header_nav, .cover').hasClass('active')){
+            $('.mobile-menu_btn, .header_nav, .cover').removeClass('active');
+        } else {
+            $('.mobile-menu_btn, .header_nav, .cover').addClass('active');
+        }
     });
-
-    // fadeInで実装
-    //   $('.mobile-menu_btn').on('click', function () {
-    //     $('.header_nav').fadeIn(); /* display:none;に対して有効 */
-    //     $('body').addClass('active');
-    //   });
-
-    //   if ($('.header_nav').css('display') == 'block'){
-    //     $('.nav-link,cover,.mobile-menu_btn').on('click', function () {
-    //         $('.header_nav').fadeOut();
-    //         $('body').removeClass('active');
-    //     });
-    //   }
 
     /*
     モーダル 
@@ -107,23 +98,6 @@ $(window).on('load scroll', function () { // ページの読み込み時かつ�
         }
     });
 });
-
-// $(window).on('load scroll', function () { // ページの読み込み時かつスクロール時
-//     var stroke = $('.stroke');
-//     console.log(stroke);
-//     var storkeAnimated = 'storkeAnimated';
-
-//     stroke.each(function () {
-//         var boxOffset = $(this).offset().top;
-//         var scrollPos = $(window).scrollTop();
-//         var wh = $(window).height();
-
-//         //画面内のどの位置で処理を実行するかで「100」の値を変更
-//         if (scrollPos > boxOffset - wh + 100) {
-//             $(this).addClass(storkeAnimated);
-//         }
-//     });
-// });
 
 /*
 hoverの切り替え 

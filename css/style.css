@@ -18,7 +18,7 @@
     opacity: 0;
     cursor: pointer;
 }
-.active .cover {
+.active.cover {
     visibility: visible;
     opacity: 1;
 }
@@ -228,6 +228,9 @@ section {
     display: none;
     position: relative;
     cursor: pointer;
+    width: 34px;
+    height: 30px;
+    margin-left: auto; /* IE対策 */
 }
 .mobile-menu_btn > span {
     display: block;
@@ -350,13 +353,17 @@ sp
     }
 
     /* jsでactiveクラスをbodyに付与、その子要素として以下を指定していく */
-    .active .header_nav {
+    .active.header_nav {
         display: block;
-        animation-name: fadeIn; /* .activeが付与されたらアニメーション開始 */
-        animation-duration: 0.5s;
-        animation-fill-mode: forwards;  /* opacity:1;を維持 */
+        -webkit-animation-name: fadeIn;
+        animation-name: fadeIn;
+        /* .activeが付与されたらアニメーション開始 */
+        -webkit-animation-duration: 0.5s;
+                animation-duration: 0.5s;
+        -webkit-animation-fill-mode: forwards;
+                animation-fill-mode: forwards;
+        /* opacity:1;を維持 */
     }
-
     @keyframes fadeIn {
         0% {
             opacity: 0;
@@ -365,23 +372,19 @@ sp
             opacity: 1;
         }
     }
-    .active .mobile-menu_btn > span:nth-child(1) {
-        -webkit-animation-name: fadeIn;
-        animation-name: fadeIn;
-    /* .activeが付与されたらアニメーション開始 */
-    -webkit-animation-duration: 0.5s;
-            animation-duration: 0.5s;
-    -webkit-animation-fill-mode: forwards;
-            animation-fill-mode: forwards;
-/* opacity:1;を維持 */
+    .active.mobile-menu_btn > span:nth-child(1) {
+        -webkit-transition-delay: 70ms;
+        transition-delay: 70ms;
+        -webkit-transform: translateY(13px) rotate(135deg);
+        transform: translateY(13px) rotate(135deg);
     }
-    .active .mobile-menu_btn > span:nth-child(2) {
+    .active.mobile-menu_btn > span:nth-child(2) {
         -webkit-transition-delay: 0s;
         transition-delay: 0s;
         -webkit-transform: translateX(-18px) scaleX(0);
                 transform: translateX(-18px) scaleX(0);
     }
-    .active .mobile-menu_btn > span:nth-child(3) {
+    .active.mobile-menu_btn > span:nth-child(3) {
         -webkit-transition-delay: 140ms;
         transition-delay: 140ms;
         -webkit-transform: translateY(-13px) rotate(-135deg);
@@ -732,6 +735,7 @@ tablet
     }
     .card {
         width: 85%;
+        min-height: 0%; /* IE対策 */
         margin: 0;
     }
     .card_content {
@@ -744,6 +748,9 @@ tablet
     .card_content .card_imgWrapper .card_img {
         width: 100%;
         height: auto;
+    }
+    .modal {
+        padding-top: 120px;
     }
     .modal_content {
         width: 90%;
