@@ -27,8 +27,6 @@ $(function () { // 通常の記述はここに書いていく
         // 上で取得した値が#か空白だったら'html'を(TOP用)、それ以外だったら先ほど取得したhref属性の値を変数に格納。つまりtargetにはhtmlか#about等が入る。
         var target = $(href == "#" || href == "" ? 'html' : href); // 「条件式 ? Trueの処理 : False(それ以外)の処理」
         // $()で取得した移動先の要素のオブジェクトを生成
-        // console.log($(href));
-        // console.log(target);
 
         // 移動先を座標の数値で取得
         var position = target.offset().top + height;
