@@ -5,11 +5,15 @@ const gulp = require("gulp");
 const imagemin = require("gulp-imagemin");
 const mozjpeg = require("imagemin-mozjpeg");
 const pngquant = require("imagemin-pngquant");
+const cleanCSS = require("gulp-clean-css");
+const rename   = require("gulp-rename");
+const uglify = require("gulp-uglify");
+const htmlmin = require('gulp-htmlmin');
 
 // srcImgフォルダのjpg,png画像を圧縮して、distImgフォルダに保存する
 gulp.task("imagemin", function() {
   return gulp
-    .src("img/*.{png,jpg}") // srcImgフォルダ以下のpng,jpg画像を取得する
+    .src("img/*.{png,jpg,jpeg}") // srcImgフォルダ以下のpng,jpg画像を取得する
     .pipe(
       imagemin([
         pngquant({
@@ -24,3 +28,49 @@ gulp.task("imagemin", function() {
     )
     .pipe(gulp.dest("img/min")); //保存
 });
+
+// cssの圧縮&rename
+gulp.task('css-minify', function(done) {
+    gulp.src('css/*.css')
+        .pipe(cleanCSS())
+        .pipe(rename({
+            extname: '.min.css'
+        }))
+        .pipe(gulp.dest('dest'));
+    done();
+});
+
+// jsの圧縮&rename
+gulp.task('js-minify', function(done) {
+    gulp.src('js/*.js')
+        .pipe(uglify())
+        .pipe(rename({
+            extname: '.min.js'
+        }))
+        .pipe(gulp.dest('dest'));
+    done();
+});
+
+// jsの圧縮&rename
+gulp.task('html-minify', () => {
+  return gulp.src('src/*.html')
+    .pipe(htmlmin({
+        // 余白を除去する
+        collapseWhitespace : true,
+        // HTMLコメントを除去する
+        removeComments : true
+    }))
+    .pipe(gulp.dest('html'))
+})
+
+// 監視ファイル
+gulp.task('watch-files', function(done) {
+    gulp.watch("css/*.css", gulp.task('css-minify'));
+    gulp.watch("js/*.js", gulp.task('js-minify'));
+    gulp.watch("img/*.{png,jpg}", gulp.task('imagemin'));
+    done();
+});
+
+gulp.task('default', gulp.series('watch-files', function(done){
+    done();
+}));
