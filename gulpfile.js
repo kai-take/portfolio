@@ -13,7 +13,7 @@ const htmlmin = require('gulp-htmlmin');
 // srcImgフォルダのjpg,png画像を圧縮して、distImgフォルダに保存する
 gulp.task("imagemin", function() {
   return gulp
-    .src("img/*.{png,jpg,jpeg}") // srcImgフォルダ以下のpng,jpg画像を取得する
+    .src("src/img/*.{png,jpg,jpeg}") // srcImgフォルダ以下のpng,jpg画像を取得する
     .pipe(
       imagemin([
         pngquant({
@@ -26,32 +26,32 @@ gulp.task("imagemin", function() {
         })
       ])
     )
-    .pipe(gulp.dest("img/min")); //保存
+    .pipe(gulp.dest("dest/img")); //保存
 });
 
 // cssの圧縮&rename
 gulp.task('css-minify', function(done) {
-    gulp.src('css/*.css')
-        .pipe(cleanCSS())
+    gulp.src("src/css/*.css")
+        .pipe(cleanCSS())   
         .pipe(rename({
             extname: '.min.css'
         }))
-        .pipe(gulp.dest('dest'));
+        .pipe(gulp.dest('dest/css'));
     done();
 });
 
 // jsの圧縮&rename
 gulp.task('js-minify', function(done) {
-    gulp.src('js/*.js')
+    gulp.src('src/js/*.js')
         .pipe(uglify())
         .pipe(rename({
             extname: '.min.js'
         }))
-        .pipe(gulp.dest('dest'));
+        .pipe(gulp.dest('dest/js'));
     done();
 });
 
-// jsの圧縮&rename
+// htmlの圧縮&rename
 gulp.task('html-minify', () => {
   return gulp.src('src/*.html')
     .pipe(htmlmin({
@@ -65,9 +65,9 @@ gulp.task('html-minify', () => {
 
 // 監視ファイル
 gulp.task('watch-files', function(done) {
-    gulp.watch("css/*.css", gulp.task('css-minify'));
-    gulp.watch("js/*.js", gulp.task('js-minify'));
-    gulp.watch("img/*.{png,jpg}", gulp.task('imagemin'));
+    gulp.watch("src/css/*.css", gulp.task('css-minify'));
+    gulp.watch("src/js/*.js", gulp.task('js-minify'));
+    gulp.watch("src/img/*.{png,jpg}", gulp.task('imagemin'));
     done();
 });
 
