@@ -1,3 +1,5 @@
+export default function script(){
+
 $(function () { // 通常の記述はここに書いていく  
     /*
     スムーススクロール 
@@ -16,7 +18,7 @@ $(function () { // 通常の記述はここに書いていく
             // スマホ表示の時の処理
             var height = -68;
         } else {
-            var height = -50;
+            var height = -50; //
         }
 
         // クリックしたaタグのhref属性（#、#about等）を取得し、変数に格納
@@ -91,3 +93,4 @@ $(window).on('load', function() {
     $('.loading').delay(2000).fadeOut(1000); /* ページの読み込み完了の2秒後に1秒かけて消える */
     $('body').addClass('load');
 });
+}
