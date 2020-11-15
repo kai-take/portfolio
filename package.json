@@ -3,20 +3,25 @@
   "version": "1.0.0",
   "main": "gulpfile.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
     "build": "npx webpack",
-    "build:p": "webpack --mode=production",
-    "start": "webpack-dev-server --open",
-    "lint:css": "stylelint --config .stylelintrc.js --fix src/css/style.scss",
-    "lint:js": "eslint --config .eslintrc.js --fix src/js/script.js"
+    "build:pd": "webpack --mode=production",
+    "lint:js": "eslint --config .eslintrc.js --fix src/js/*.js",
+    "css:lint": "stylelint --config .stylelintrc.js --fix src/css/*.scss",
+    "css:sass": "node-sass --importer node_modules/node-sass-globbing/index.js src/css/style.scss -o dist/css --output-style expanded",
+    "css:postcss": "postcss dist/css/style.css -d dist/css/",
+    "all:css": "npm-run-all -s css:*",
+    "watch:server": "browser-sync start --config bs-config.js",
+    "watch:sass": "node-sass --importer node_modules/node-sass-globbing/index.js src/css -o dist/css --output-style expanded -w",
+    "w": "npm-run-all -p watch:*"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
     "autoprefixer": "^10.0.2",
+    "browser-sync": "^2.26.13",
     "copy-webpack-plugin": "^6.3.0",
-    "css-loader": "^5.0.1",
+    "cssnano": "^4.1.10",
     "eslint": "^7.13.0",
     "eslint-config-standard": "^16.0.1",
     "eslint-plugin-import": "^2.22.1",
@@ -28,15 +33,12 @@
     "imagemin-mozjpeg": "^9.0.0",
     "imagemin-pngquant": "^9.0.1",
     "imagemin-webpack-plugin": "^2.4.2",
-    "import-glob-loader": "^1.1.0",
-    "mini-css-extract-plugin": "^1.3.0",
-    "optimize-css-assets-webpack-plugin": "^5.0.4",
+    "node-sass": "^5.0.0",
+    "node-sass-globbing": "0.0.23",
+    "npm-run-all": "^4.1.5",
     "postcss": "^8.1.7",
-    "postcss-loader": "^4.0.4",
-    "postcss-sort-media-queries": "^2.1.11",
+    "postcss-cli": "^8.2.0",
     "sass": "^1.29.0",
-    "sass-loader": "^10.0.5",
-    "style-loader": "^2.0.0",
     "stylelint": "^13.7.2",
     "stylelint-config-recess-order": "^2.3.0",
     "stylelint-config-standard": "^20.0.0",
@@ -46,11 +48,13 @@
     "stylelint-webpack-plugin": "^2.1.1",
     "terser-webpack-plugin": "^5.0.3",
     "webpack": "^5.4.0",
-    "webpack-cli": "^4.2.0",
-    "webpack-dev-server": "^3.11.0"
+    "webpack-cli": "^4.2.0"
   },
   "description": "",
   "dependencies": {
     "jquery": "^3.5.1"
-  }
+  },
+  "browserslist": [
+    "last 2 version"
+  ]
 }
